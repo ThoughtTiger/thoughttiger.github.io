@@ -12,12 +12,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/05/22/hello-world 2/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
 <meta property="og:description" content="1 好好学习1.1 哈哈12345678910111213141516171819202122232425public class Test1 &amp;#123;    public static void main(String[] args) &amp;#123;        Unsafe unsafe;        try &amp;#123;            Field field = sun.mis">
-<meta property="og:image" content="http://yoursite.com/public/pic/1.png">
-<meta property="og:updated_time" content="2016-05-21T17:25:11.670Z">
+<meta property="og:image" content="http://yoursite.com/pic/1.png">
+<meta property="og:updated_time" content="2016-05-21T17:26:15.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你好">
 <meta name="twitter:description" content="1 好好学习1.1 哈哈12345678910111213141516171819202122232425public class Test1 &amp;#123;    public static void main(String[] args) &amp;#123;        Unsafe unsafe;        try &amp;#123;            Field field = sun.mis">
-<meta name="twitter:image" content="http://yoursite.com/public/pic/1.png">
+<meta name="twitter:image" content="http://yoursite.com/pic/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -229,7 +229,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1-好好学习"><a href="#1-好好学习" class="headerlink" title="1 好好学习"></a>1 好好学习</h2><h3 id="1-1-哈哈"><a href="#1-1-哈哈" class="headerlink" title="1.1 哈哈"></a>1.1 哈哈</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Unsafe unsafe;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = sun.misc.Unsafe.class.getDeclaredField(<span class="string">"theUnsafe"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            unsafe = (sun.misc.Unsafe) field.get(<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> value = <span class="number">12345</span>;</span><br><span class="line">        <span class="keyword">byte</span> size = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> allocateMemory = unsafe.allocateMemory(size);</span><br><span class="line">        System.out.println(allocateMemory);</span><br><span class="line"></span><br><span class="line">        unsafe.putAddress(allocateMemory, value);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> readValue = unsafe.getAddress(allocateMemory);</span><br><span class="line">        System.out.println(<span class="string">"read value : "</span> + readValue);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/public/pic/1.png" alt=""></p>
+<p><img src="/pic/1.png" alt=""></p>
 
       
     </div>
