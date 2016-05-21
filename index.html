@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -222,7 +222,8 @@
       
         <h2 id="1-好好学习"><a href="#1-好好学习" class="headerlink" title="1 好好学习"></a>1 好好学习</h2><h3 id="1-1-哈哈"><a href="#1-1-哈哈" class="headerlink" title="1.1 哈哈"></a>1.1 哈哈</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Unsafe unsafe;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = sun.misc.Unsafe.class.getDeclaredField(<span class="string">"theUnsafe"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            unsafe = (sun.misc.Unsafe) field.get(<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError(e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> value = <span class="number">12345</span>;</span><br><span class="line">        <span class="keyword">byte</span> size = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> allocateMemory = unsafe.allocateMemory(size);</span><br><span class="line">        System.out.println(allocateMemory);</span><br><span class="line"></span><br><span class="line">        unsafe.putAddress(allocateMemory, value);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> readValue = unsafe.getAddress(allocateMemory);</span><br><span class="line">        System.out.println(<span class="string">"read value : "</span> + readValue);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="/pic/1.png" alt=""></p>
-
+<hr>
+<h2 id="Tags-agc-ddd"><a href="#Tags-agc-ddd" class="headerlink" title="Tags: agc ddd"></a>Tags: agc ddd</h2>
       
     </div>
     
