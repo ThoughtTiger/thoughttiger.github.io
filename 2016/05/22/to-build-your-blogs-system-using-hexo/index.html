@@ -82,7 +82,7 @@ MarkdownPAD
 <meta property="og:image" content="http://i.imgur.com/fbZSJfZ.jpg">
 <meta property="og:image" content="http://i.imgur.com/9nNhC5E.jpg">
 <meta property="og:image" content="http://i.imgur.com/U8L898U.jpg">
-<meta property="og:updated_time" content="2016-05-22T07:27:19.806Z">
+<meta property="og:updated_time" content="2016-05-22T13:00:08.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git+github+hexo+MarkdownPad创建自己博客系统">
 <meta name="twitter:description" content="1 准备
@@ -177,7 +177,7 @@ MarkdownPAD
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -327,7 +327,7 @@ MarkdownPAD
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tags/">tags</a>
+	<a class="article-category-link" href="/categories/githubs/">githubs</a>
 	</div>
 
 
@@ -374,6 +374,7 @@ MarkdownPAD
 <h4 id="1-1-4-MarkdownPAD"><a href="#1-1-4-MarkdownPAD" class="headerlink" title="1.1.4 MarkdownPAD"></a>1.1.4 MarkdownPAD</h4><p><a href="http://markdownpad.com/" target="_blank" rel="external">http://markdownpad.com/</a></p>
 <p>对于2.0来说，它的注册如下：<br>邮箱：<br>Soar360@live.com<br>授权秘钥：<br>GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
 <p>MarkdownPad Pro版最有优势的地方就是能否处理图片，会自动帮你将图片上传到imgur.com，而不用你手动上传到github中，这点异常方便。</p>
+<a id="more"></a>
 <p><br></p>
 <h2 id="1-2-注册github并配置"><a href="#1-2-注册github并配置" class="headerlink" title="1.2 注册github并配置"></a>1.2 注册github并配置</h2><p>注册一个github账号。以下是2个关键的配置</p>
 <p><br></p>
@@ -446,6 +447,19 @@ $ git config --global user.email  &quot;cnfeat@gmail.com&quot;//填写自己的�
 <pre><code>![图片1](http://i.imgur.com/jKc6j2I.png)
 </code></pre><p><br></p>
 <h3 id="2-8-3-将独立域名与GitHub-Pages的空间绑定"><a href="#2-8-3-将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="2.8.3 将独立域名与GitHub Pages的空间绑定"></a>2.8.3 将独立域名与GitHub Pages的空间绑定</h3><p><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785/" target="_blank" rel="external">http://blog.csdn.net/poem_of_sunshine/article/details/29369785/</a></p>
+<h3 id="2-8-4-换行"><a href="#2-8-4-换行" class="headerlink" title="2.8.4 换行"></a>2.8.4 换行</h3><p>添加： </p>
+<pre><code>&lt;br /&gt;
+</code></pre><h3 id="2-8-5-错误：Deployer-not-found-git"><a href="#2-8-5-错误：Deployer-not-found-git" class="headerlink" title="2.8.5 错误：Deployer not found: git"></a>2.8.5 错误：Deployer not found: git</h3><p>出现这个错误，先确认deploy的type已经改成了git。<br>然后在hexo目录下运行：</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>之后再执行</p>
+<pre><code>hexo generate
+hexo deploy
+</code></pre><p>即可。</p>
+<h3 id="2-8-6-超长文章进行more折叠"><a href="#2-8-6-超长文章进行more折叠" class="headerlink" title="2.8.6 超长文章进行more折叠"></a>2.8.6 超长文章进行more折叠</h3><p>在文章中添加</p>
+<blockquote>
+<p>&lt;!– more –></p>
+</blockquote>
+<p>这样的话，more前面的就显示了！more后面的就隐藏起来了！</p>
 
       
     </div>

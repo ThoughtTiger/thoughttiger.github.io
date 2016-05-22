@@ -77,7 +77,7 @@
 						<li>Links</li>
 						
 						
-						<li>About</li>
+						<li>Über</li>
 						
 					</ul>
 				</div>
@@ -224,7 +224,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-准备"><a href="#1-准备" class="headerlink" title="1 准备"></a>1 准备</h1><p><br></p>
+        <h1 id="1-准备"><a href="#1-准备" class="headerlink" title="1 准备"></a>1 准备</h1><p><br /></p>
 <h2 id="1-1-安装软件"><a href="#1-1-安装软件" class="headerlink" title="1.1 安装软件"></a>1.1 安装软件</h2><table>
 <thead>
 <tr>
@@ -251,89 +251,16 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<h3 id="1-1-1-安装git-for-windows"><a href="#1-1-1-安装git-for-windows" class="headerlink" title="1.1.1 安装git for windows"></a>1.1.1 安装git for windows</h3><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">https://git-for-windows.github.io/</a></p>
-<p><br></p>
-<h3 id="1-1-2-安装nodejs-for-windows"><a href="#1-1-2-安装nodejs-for-windows" class="headerlink" title="1.1.2 安装nodejs for windows"></a>1.1.2 安装nodejs for windows</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></p>
-<p><br></p>
+<p><br /></p>
+<h3 id="1-1-1-安装git-for-windows"><a href="#1-1-1-安装git-for-windows" class="headerlink" title="1.1.1 安装git for windows"></a>1.1.1 安装git for windows</h3><p><a href="https://git-for-windows.github.io/">https://git-for-windows.github.io/</a></p>
+<p><br /></p>
+<h3 id="1-1-2-安装nodejs-for-windows"><a href="#1-1-2-安装nodejs-for-windows" class="headerlink" title="1.1.2 安装nodejs for windows"></a>1.1.2 安装nodejs for windows</h3><p><a href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<p><br /></p>
 <h3 id="1-1-3-安装hexo"><a href="#1-1-3-安装hexo" class="headerlink" title="1.1.3 安装hexo"></a>1.1.3 安装hexo</h3><p>安装好nodejs后，系统会自带npm命令。<br>安装hexo<br>npm install -g hexo<br>这里有warn可以不用管<br><img src="http://i.imgur.com/3RDXwT7.jpg" alt=""></p>
-<p><br></p>
-<h4 id="1-1-4-MarkdownPAD"><a href="#1-1-4-MarkdownPAD" class="headerlink" title="1.1.4 MarkdownPAD"></a>1.1.4 MarkdownPAD</h4><p><a href="http://markdownpad.com/" target="_blank" rel="external">http://markdownpad.com/</a></p>
+<p><br /></p>
+<h4 id="1-1-4-MarkdownPAD"><a href="#1-1-4-MarkdownPAD" class="headerlink" title="1.1.4 MarkdownPAD"></a>1.1.4 MarkdownPAD</h4><p><a href="http://markdownpad.com/">http://markdownpad.com/</a></p>
 <p>对于2.0来说，它的注册如下：<br>邮箱：<br>Soar360@live.com<br>授权秘钥：<br>GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</p>
 <p>MarkdownPad Pro版最有优势的地方就是能否处理图片，会自动帮你将图片上传到imgur.com，而不用你手动上传到github中，这点异常方便。</p>
-<p><br></p>
-<h2 id="1-2-注册github并配置"><a href="#1-2-注册github并配置" class="headerlink" title="1.2 注册github并配置"></a>1.2 注册github并配置</h2><p>注册一个github账号。以下是2个关键的配置</p>
-<p><br></p>
-<h3 id="1-2-1-ssh-keys"><a href="#1-2-1-ssh-keys" class="headerlink" title="1.2.1 ssh keys"></a>1.2.1 ssh keys</h3><p>我们如何让本地Git项目与远程的github建立联系呢？用SSH keys。<br><br><br>检查SSH keys的设置<br>首先我们需要检查你电脑上现有的ssh key：</p>
-<pre><code>$ cd ~/. ssh
-</code></pre><p>检查本机的ssh密钥<br>如果提示：No such file or directory 说明你是第一次使用git。<br><br><br>生成新的SSH Key：</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;邮件地址@youremail.com&quot;
-</code></pre><p><br><br>Generating public/private rsa key pair.<br>Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;<br><br><br>注意1: 此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」<br>然后系统会要你输入密码：<br>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;<br>Enter same passphrase again:&lt;再次输入加密串&gt;<br>在回车中会提示你输入一个密码，这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。<br>注意：输入密码的时候没有*字样的，你直接输入就可以了。<br>最后看到这样的界面，就成功设置ssh key了：<br><img src="http://i.imgur.com/CsAWGAF.jpg" alt=""></p>
-<p><br><br><strong>添加SSH Key到GitHub</strong><br>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。<br>•    1、打开本地C:\Documents and Settings\Administrator.ssh\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。<br>•    2、登陆github系统。点击右上角的 Account Settings—-&gt;SSH Public keys —-&gt; add another public keys<br>•    3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了<br><img src="http://i.imgur.com/QgVhSFI.jpg" alt=""></p>
-<p><br><br><strong>测试</strong><br>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：</p>
-<pre><code>$ ssh -T git@github.com
-</code></pre><p>如果是下面的反馈：<br>The authenticity of host ‘github.com (207.97.227.239)’ can’t be established.<br>RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br>Are you sure you want to continue connecting (yes/no)?<br>不要紧张，输入yes就好，然后会看到：<br>Hi cnfeat! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p><br></p>
-<h3 id="1-2-2-设置用户信息"><a href="#1-2-2-设置用户信息" class="headerlink" title="1.2.2 设置用户信息"></a>1.2.2 设置用户信息</h3><p>现在你已经可以通过SSH链接到GitHub了，还有一些个人信息需要完善的。<br>Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字必须是你的真名，而不是GitHub的昵称。</p>
-<pre><code>$ git config --global user.name &quot;cnfeat&quot;//用户名
-$ git config --global user.email  &quot;cnfeat@gmail.com&quot;//填写自己的邮箱
-</code></pre><p><br></p>
-<h1 id="2-博客"><a href="#2-博客" class="headerlink" title="2 博客"></a>2 博客</h1><p><br></p>
-<h2 id="2-1-原型搭建"><a href="#2-1-原型搭建" class="headerlink" title="2.1 原型搭建"></a>2.1 原型搭建</h2><p>在我的电脑中建立一个名字叫「Hexo」的文件夹，然后在此文件夹中右键打开Git Bash。<br><img src="http://i.imgur.com/9GvlFW6.jpg" alt=""></p>
-<pre><code>$ hexo init
-</code></pre><p>Hexo随后会自动在目标文件夹建立网站所需要的所有文件。</p>
-<pre><code>$ hexo new &quot;test1&quot;
-</code></pre><p><img src="http://i.imgur.com/tXw9yyZ.jpg" alt=""><br>发现UI在source_posts\下面，建立一个test1.md文件。这个就是博客模板文件，采用了Markdown格式。</p>
-<pre><code>$ hexo generate
-</code></pre><p><img src="http://i.imgur.com/L0Wu1ZL.jpg" alt=""></p>
-<pre><code>$ hexo s
-</code></pre><p><img src="http://i.imgur.com/kUNSB8z.jpg" alt=""></p>
-<p>打开浏览器：</p>
-<p>发现还是空白。因为test1.md里面没有任何内容。</p>
-<p><br></p>
-<h2 id="2-2-优化md文件"><a href="#2-2-优化md文件" class="headerlink" title="2.2 优化md文件"></a>2.2 优化md文件</h2><p>优化md文件，就是添加你的博客内容。前提是你必须了解Markdown语法。<br><a href="http://www.jianshu.com/p/21d355525bdf" target="_blank" rel="external">http://www.jianshu.com/p/21d355525bdf</a></p>
-<p>下面就是一个通过MarkdownPad编写的测试md文件。</p>
-<hr>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://i.imgur.com/Wy1KUtD.jpg" alt=""></h2><p>本地浏览一下<br><img src="http://i.imgur.com/Yo6esnD.jpg" alt=""></p>
-<p><br></p>
-<h2 id="2-3-标准md格式"><a href="#2-3-标准md格式" class="headerlink" title="2.3 标准md格式"></a>2.3 标准md格式</h2><p><img src="http://i.imgur.com/dZNIbdj.jpg" alt=""></p>
-<p><br></p>
-<h2 id="2-4-选择博客主题"><a href="#2-4-选择博客主题" class="headerlink" title="2.4 选择博客主题"></a>2.4 选择博客主题</h2><p>在这里，我们选择简洁优雅的yilia主题。<br><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">https://github.com/litten/hexo-theme-yilia</a></p>
-<p><br></p>
-<h3 id="2-4-1-安装"><a href="#2-4-1-安装" class="headerlink" title="2.4.1 安装"></a>2.4.1 安装</h3><pre><code>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
-</code></pre><p>执行成功后，发下在本地目录themes下多了个yilia文件夹</p>
-<p><br></p>
-<h3 id="2-4-2-配置yilia"><a href="#2-4-2-配置yilia" class="headerlink" title="2.4.2 配置yilia"></a>2.4.2 配置yilia</h3><p>编辑themes\yilia_config.yml文件</p>
-<hr>
-<blockquote>
-<p># Header<br>menu:<br>  主页: /<br>  所有文章: /archives<br>  tags: /tags<br>  about: /about<br>  # 随笔: /tags/随笔<br><br><br># SubNav<br>subnav:<br>  github: “<a href="http://thoughttiger.github.io/" target="_blank" rel="external">http://thoughttiger.github.io/</a>“<br>  weibo: “<a href="http://weibo.com/u/1819349703" target="_blank" rel="external">http://weibo.com/u/1819349703</a>“<br>  #rss: “#“<br>  #zhihu: “#“<br>  #douban: “#“<br>  #mail: “#“<br>  #facebook: “#“<br>  #google: “#“<br>  #twitter: “#“<br>  #linkedin: “#“<br><br><br>rss: /atom.xml<br><br><br># Content<br>excerpt_link: more<br>fancybox: true<br>mathjax: true<br><br><br># 是否开启动画效果<br>animate: true<br><br><br># 是否在新窗口打开链接<br>open_in_new: false<br><br><br># Miscellaneous<br>google_analytics: ‘’<br>favicon: /favicon.png<br><br><br>#你的头像url<br>avatar: ‘/pic/touxiang.jpg’<br>#是否开启分享<br>share_jia: true<br>share_addthis: false<br>#是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key<br>#若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论<br>duoshuo: thoughttiger<br>#是否开启云标签<br>tagcloud: true<br><br><br>#是否开启友情链接<br>#不开启——<br>#friends: false<br>#开启——<br>friends:<br>  奥巴马的博客: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>  卡卡的美丽传说: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>  本泽马的博客: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>  吉格斯的博客: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>  习大大大不同: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br>  托蒂的博客: <a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a><br><br><br>#是否开启“关于我”。<br>#不开启——<br>#aboutme: false<br>#开启——<br>aboutme: Hello, Tiger!</p>
-</blockquote>
-<hr>
-<p><br></p>
-<h2 id="2-5-编辑hexo整体配置文件"><a href="#2-5-编辑hexo整体配置文件" class="headerlink" title="2.5 编辑hexo整体配置文件"></a>2.5 编辑hexo整体配置文件</h2><h2 id="在根目录下的-config-yml是hexo的整体配置文件"><a href="#在根目录下的-config-yml是hexo的整体配置文件" class="headerlink" title="在根目录下的_config.yml是hexo的整体配置文件"></a>在根目录下的_config.yml是hexo的整体配置文件</h2><blockquote>
-<p># Hexo Configuration<br>## Docs: <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">https://hexo.io/docs/configuration.html</a><br>## Source: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="external">https://github.com/hexojs/hexo/</a><br><br><br># Site<br>title: Thought_Tiger`s Blogs<br>subtitle:<br>description:<br>author: Thought_Tiger<br>language: zh-CN<br>timezone:<br><br><br># URL<br>## If your site is put in a subdirectory, set url as ‘<a href="http://yoursite.com/child" target="_blank" rel="external">http://yoursite.com/child</a>‘ and root as ‘/child/‘<br>url: <a href="http://thoughttiger.github.com">http://thoughttiger.github.com</a><br>root: /<br>permalink: :year/:month/:day/:title/<br>permalink_defaults:<br><br><br># Directory<br>source_dir: source<br>public_dir: public<br>tag_dir: tags<br>archive_dir: archives<br>category_dir: categories<br>code_dir: downloads/code<br>i18n_dir: :lang<br>skip_render:<br><br><br># Writing<br>new_post_name: :title.md # File name of new posts<br>default_layout: post<br>titlecase: false # Transform title into titlecase<br>external_link: true # Open external links in new tab<br>filename_case: 0<br>render_drafts: false<br>post_asset_folder: false<br>relative_link: false<br>future: true<br>highlight:<br>  enable: true<br>  line_number: true<br>  auto_detect: false<br>  tab_replace:<br><br><br># Category &amp; Tag<br>default_category: uncategorized<br>category_map:<br>tag_map:<br><br><br># Date / Time format<br>## Hexo uses Moment.js to parse and display date<br>## You can customize the date format as defined in<br>## <a href="http://momentjs.com/docs/\#/displaying/format/" target="_blank" rel="external">http://momentjs.com/docs/\#/displaying/format/</a><br>date_format: YYYY-MM-DD<br>time_format: HH:mm:ss<br><br><br># Pagination<br>## Set per_page to 0 to disable pagination<br>per_page: 10<br>pagination_dir: page<br><br><br># Extensions<br>## Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="external">https://hexo.io/plugins/</a><br>## Themes: <a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>## theme: landscape<br>theme: yilia<br><br><br># Deployment<br>## Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">https://hexo.io/docs/deployment.html</a><br>deploy:<br>  type: git<br>  repository: <a href="https://github.com/ThoughtTiger/thoughttiger.github.io.git" target="_blank" rel="external">https://github.com/ThoughtTiger/thoughttiger.github.io.git</a><br>  branch: master</p>
-</blockquote>
-<hr>
-<p><br></p>
-<h2 id="2-6-发布到github"><a href="#2-6-发布到github" class="headerlink" title="2.6 发布到github"></a>2.6 发布到github</h2><p><img src="http://i.imgur.com/V04OO1K.jpg" alt=""></p>
-<p><br></p>
-<h2 id="2-7-展现"><a href="#2-7-展现" class="headerlink" title="2.7 展现"></a>2.7 展现</h2><p>http://<github账号>.github.io</github账号></p>
-<p><br></p>
-<h2 id="2-8-其他技巧"><a href="#2-8-其他技巧" class="headerlink" title="2.8 其他技巧"></a>2.8 其他技巧</h2><p><br></p>
-<h3 id="2-8-1-tags"><a href="#2-8-1-tags" class="headerlink" title="2.8.1 tags"></a>2.8.1 tags</h3><p>1 hexo配置文件中，执行目录<br>tag_dir: tags</p>
-<p>2 md文件中配置tags</p>
-<blockquote>
-<p>title: 你好<br>type: “tags”<br>tags: [tag1,tag2]</p>
-</blockquote>
-<p>3 浏览<br><img src="http://i.imgur.com/fbZSJfZ.jpg" alt=""></p>
-<p><br></p>
-<h3 id="2-8-2-博客图片"><a href="#2-8-2-博客图片" class="headerlink" title="2.8.2 博客图片"></a>2.8.2 博客图片</h3><p>github以文本提交，如果要上传图片怎么办？那几利用MarkdownPro版本。<br><img src="http://i.imgur.com/9nNhC5E.jpg" alt=""></p>
-<p><img src="http://i.imgur.com/U8L898U.jpg" alt=""></p>
-<p>自动帮你把图片上传到imgur.com，并嵌入到md文本中：</p>
-<pre><code>![图片1](http://i.imgur.com/jKc6j2I.png)
-</code></pre><p><br></p>
-<h3 id="2-8-3-将独立域名与GitHub-Pages的空间绑定"><a href="#2-8-3-将独立域名与GitHub-Pages的空间绑定" class="headerlink" title="2.8.3 将独立域名与GitHub Pages的空间绑定"></a>2.8.3 将独立域名与GitHub Pages的空间绑定</h3><p><a href="http://blog.csdn.net/poem_of_sunshine/article/details/29369785/" target="_blank" rel="external">http://blog.csdn.net/poem_of_sunshine/article/details/29369785/</a></p>
-
       
     </div>
     
@@ -346,10 +273,14 @@ $ git config --global user.email  &quot;cnfeat@gmail.com&quot;//填写自己的�
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tags/">tags</a>
+	<a class="article-category-link" href="/categories/githubs/">githubs</a>
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/22/to-build-your-blogs-system-using-hexo/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
