@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+  
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
   <meta charset="utf-8">
   
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>git+github+hexo+MarkdownPad创建自己博客系统 | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1 准备
@@ -82,7 +87,7 @@ MarkdownPAD
 <meta property="og:image" content="http://i.imgur.com/fbZSJfZ.jpg">
 <meta property="og:image" content="http://i.imgur.com/9nNhC5E.jpg">
 <meta property="og:image" content="http://i.imgur.com/U8L898U.jpg">
-<meta property="og:updated_time" content="2016-05-25T14:55:38.853Z">
+<meta property="og:updated_time" content="2016-05-25T15:43:56.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git+github+hexo+MarkdownPad创建自己博客系统">
 <meta name="twitter:description" content="1 准备
@@ -121,186 +126,223 @@ MarkdownPAD
   
     <link rel="icon" href="/favicon.png">
   
+  
+      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
   <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js",
+          search: undefined
+      }
+  </script>
 
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?184e18c5d7eda2cf4f24f057a9efa6d2";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
 <body>
   <div id="container">
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/pic/touxiang.jpg" class="js-avatar">
-			
-		</a>
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Thought_Tiger</a></h1>
+        </hgroup>
 
-		<hgroup>
-		  <h1 class="header-author"><a href="/">Thought_Tiger</a></h1>
-		</hgroup>
+        
 
-		
+        
 
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>Menu</li>
-						<li>Tags</li>
-						
-						<li>Links</li>
-						
-						
-						<li>Über</li>
-						
-					</ul>
-				</div>
-			</div>
-		
 
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-							<li><a href="/tags">tags</a></li>
-				        
-							<li><a href="/about">about</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="http://thoughttiger.github.io/" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/u/1819349703" title="weibo">weibo</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/intellij/" style="font-size: 10px;">intellij</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
 
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">Hello, Tiger!</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
 </div>
-
     </div>
     <div class="mid-col">
       <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Thought_Tiger</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/pic/touxiang.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">Thought_Tiger</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-					<li><a href="/tags">tags</a></li>
-		        
-					<li><a href="/about">about</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="http://thoughttiger.github.io/" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/u/1819349703" title="weibo">weibo</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-
       <div class="body-wrap"><article id="post-to-build-your-blogs-system-using-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/05/22/to-build-your-blogs-system-using-hexo/" class="article-date">
-  	<time datetime="2016-05-22T06:46:40.824Z" itemprop="datePublished">2016-05-22</time>
+      <time datetime="2016-05-22T06:46:40.824Z" itemprop="datePublished">2016-05-22</time>
 </a>
     </div>
   
@@ -321,15 +363,15 @@ MarkdownPAD
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/githubs/">githubs</a>
+    </div>
+
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/githubs/">githubs</a>
-	</div>
-
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+    </div>
 
         <div class="clearfix"></div>
       </div>
@@ -337,6 +379,7 @@ MarkdownPAD
     
     <div class="article-entry" itemprop="articleBody">
       
+          
         <h1 id="1-准备"><a href="#1-准备" class="headerlink" title="1 准备"></a>1 准备</h1><p><br></p>
 <h2 id="1-1-安装软件"><a href="#1-1-安装软件" class="headerlink" title="1.1 安装软件"></a>1.1 安装软件</h2><table>
 <thead>
@@ -407,8 +450,8 @@ $ git config --global user.email  &quot;cnfeat@gmail.com&quot;//填写自己的�
 <p><br></p>
 <h2 id="2-2-优化md文件"><a href="#2-2-优化md文件" class="headerlink" title="2.2 优化md文件"></a>2.2 优化md文件</h2><p>优化md文件，就是添加你的博客内容。前提是你必须了解Markdown语法。<br><a href="http://www.jianshu.com/p/21d355525bdf" target="_blank" rel="external">http://www.jianshu.com/p/21d355525bdf</a></p>
 <p>下面就是一个通过MarkdownPad编写的测试md文件。</p>
-<hr>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="http://i.imgur.com/Wy1KUtD.jpg" alt=""></h2><p>本地浏览一下<br><img src="http://i.imgur.com/Yo6esnD.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/Wy1KUtD.jpg" alt=""></p>
+<p>本地浏览一下<br><img src="http://i.imgur.com/Yo6esnD.jpg" alt=""></p>
 <p><br></p>
 <h2 id="2-3-标准md格式"><a href="#2-3-标准md格式" class="headerlink" title="2.3 标准md格式"></a>2.3 标准md格式</h2><p><img src="http://i.imgur.com/dZNIbdj.jpg" alt=""></p>
 <p><br></p>
@@ -424,7 +467,9 @@ $ git config --global user.email  &quot;cnfeat@gmail.com&quot;//填写自己的�
 </blockquote>
 <hr>
 <p><br></p>
-<h2 id="2-5-编辑hexo整体配置文件"><a href="#2-5-编辑hexo整体配置文件" class="headerlink" title="2.5 编辑hexo整体配置文件"></a>2.5 编辑hexo整体配置文件</h2><h2 id="在根目录下的-config-yml是hexo的整体配置文件"><a href="#在根目录下的-config-yml是hexo的整体配置文件" class="headerlink" title="在根目录下的_config.yml是hexo的整体配置文件"></a>在根目录下的_config.yml是hexo的整体配置文件</h2><blockquote>
+<h2 id="2-5-编辑hexo整体配置文件"><a href="#2-5-编辑hexo整体配置文件" class="headerlink" title="2.5 编辑hexo整体配置文件"></a>2.5 编辑hexo整体配置文件</h2><p>在根目录下的_config.yml是hexo的整体配置文件</p>
+<hr>
+<blockquote>
 <p># Hexo Configuration<br>## Docs: <a href="https://hexo.io/docs/configuration.html" target="_blank" rel="external">https://hexo.io/docs/configuration.html</a><br>## Source: <a href="https://github.com/hexojs/hexo/" target="_blank" rel="external">https://github.com/hexojs/hexo/</a><br><br><br># Site<br>title: Thought_Tiger`s Blogs<br>subtitle:<br>description:<br>author: Thought_Tiger<br>language: zh-CN<br>timezone:<br><br><br># URL<br>## If your site is put in a subdirectory, set url as ‘<a href="http://yoursite.com/child" target="_blank" rel="external">http://yoursite.com/child</a>‘ and root as ‘/child/‘<br>url: <a href="http://thoughttiger.github.com">http://thoughttiger.github.com</a><br>root: /<br>permalink: :year/:month/:day/:title/<br>permalink_defaults:<br><br><br># Directory<br>source_dir: source<br>public_dir: public<br>tag_dir: tags<br>archive_dir: archives<br>category_dir: categories<br>code_dir: downloads/code<br>i18n_dir: :lang<br>skip_render:<br><br><br># Writing<br>new_post_name: :title.md # File name of new posts<br>default_layout: post<br>titlecase: false # Transform title into titlecase<br>external_link: true # Open external links in new tab<br>filename_case: 0<br>render_drafts: false<br>post_asset_folder: false<br>relative_link: false<br>future: true<br>highlight:<br>  enable: true<br>  line_number: true<br>  auto_detect: false<br>  tab_replace:<br><br><br># Category &amp; Tag<br>default_category: uncategorized<br>category_map:<br>tag_map:<br><br><br># Date / Time format<br>## Hexo uses Moment.js to parse and display date<br>## You can customize the date format as defined in<br>## <a href="http://momentjs.com/docs/\#/displaying/format/" target="_blank" rel="external">http://momentjs.com/docs/\#/displaying/format/</a><br>date_format: YYYY-MM-DD<br>time_format: HH:mm:ss<br><br><br># Pagination<br>## Set per_page to 0 to disable pagination<br>per_page: 10<br>pagination_dir: page<br><br><br># Extensions<br>## Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="external">https://hexo.io/plugins/</a><br>## Themes: <a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a><br>## theme: landscape<br>theme: yilia<br><br><br># Deployment<br>## Docs: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">https://hexo.io/docs/deployment.html</a><br>deploy:<br>  type: git<br>  repository: <a href="https://github.com/ThoughtTiger/thoughttiger.github.io.git" target="_blank" rel="external">https://github.com/ThoughtTiger/thoughttiger.github.io.git</a><br>  branch: master</p>
 </blockquote>
 <hr>
@@ -467,45 +512,92 @@ hexo deploy
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2016/05/25/how_to_crack_intellij_15.0.1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
+
+
+    <nav id="article-nav">
         
-          怎样获得IntelliJ 15.0.1 Pro版
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/25/how_to_crack_intellij_15.0.1/">
+                    怎样获得IntelliJ 15.0.1 Pro版
+                </a>
+            </div>
         
-      </div>
-    </a>
-  
-  
-    <a href="/2016/05/21/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/21/hello-world/">
+                    Hello World
+                </a>
+            </div>
+        
+    </nav>
 
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-准备"><span class="toc-number">1.</span> <span class="toc-text">1 准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-安装软件"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 安装软件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-安装git-for-windows"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1.1 安装git for windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2-安装nodejs-for-windows"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.1.2 安装nodejs for windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-3-安装hexo"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.1.3 安装hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-MarkdownPAD"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">1.1.4 MarkdownPAD</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-注册github并配置"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 注册github并配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-ssh-keys"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 ssh keys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-设置用户信息"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2 设置用户信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-博客"><span class="toc-number">2.</span> <span class="toc-text">2 博客</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-原型搭建"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 原型搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-优化md文件"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 优化md文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-标准md格式"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 标准md格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-选择博客主题"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 选择博客主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-安装"><span class="toc-number">2.4.1.</span> <span class="toc-text">2.4.1 安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-配置yilia"><span class="toc-number">2.4.2.</span> <span class="toc-text">2.4.2 配置yilia</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-编辑hexo整体配置文件"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 编辑hexo整体配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-发布到github"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 发布到github</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-7-展现"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 展现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-8-其他技巧"><span class="toc-number">2.8.</span> <span class="toc-text">2.8 其他技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-1-tags"><span class="toc-number">2.8.1.</span> <span class="toc-text">2.8.1 tags</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-2-博客图片"><span class="toc-number">2.8.2.</span> <span class="toc-text">2.8.2 博客图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-3-将独立域名与GitHub-Pages的空间绑定"><span class="toc-number">2.8.3.</span> <span class="toc-text">2.8.3 将独立域名与GitHub Pages的空间绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-4-换行"><span class="toc-number">2.8.4.</span> <span class="toc-text">2.8.4 换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-5-错误：Deployer-not-found-git"><span class="toc-number">2.8.5.</span> <span class="toc-text">2.8.5 错误：Deployer not found: git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-6-超长文章进行more折叠"><span class="toc-number">2.8.6.</span> <span class="toc-text">2.8.6 超长文章进行more折叠</span></a></li></ol></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
 
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"git+github+hexo+MarkdownPad创建自己博客系统　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
 </div>
 
 
@@ -513,88 +605,106 @@ hexo deploy
 
 
 
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="to-build-your-blogs-system-using-hexo" data-title="git+github+hexo+MarkdownPad创建自己博客系统" data-url="http://thoughttiger.github.com/2016/05/22/to-build-your-blogs-system-using-hexo/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"thoughttiger"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/22/to-build-your-blogs-system-using-hexo/" data-title="git+github+hexo+MarkdownPad创建自己博客系统" data-url="http://thoughttiger.github.com/2016/05/22/to-build-your-blogs-system-using-hexo/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thoughttiger"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
 </div>
 
+    
 
 
 
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/25/how_to_crack_intellij_15.0.1/" title="上一篇: 怎样获得IntelliJ 15.0.1 Pro版">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/21/hello-world/" title="下一篇: Hello World">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/how_to_crack_intellij_15.0.1/">怎样获得IntelliJ 15.0.1 Pro版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/to-build-your-blogs-system-using-hexo/">git+github+hexo+MarkdownPad创建自己博客系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 Thought_Tiger
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Thought_Tiger
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
-  </div>
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
 
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-});
-
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-
-
   </div>
 </body>
 </html>
