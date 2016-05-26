@@ -9,18 +9,27 @@
 
   <meta charset="utf-8">
   
-  <title>404 | Thought_Tiger`s Blogs</title>
+  <title>使用Fuel6.0在VMWare Workstation上安装OpenStack | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="http://thoughttiger.github.com/404/index.html">
+  <meta name="description" content="网上很多Fuel安装指导，这里在VMWare Workstation上开三个虚拟机，采用CentOS 6.5。 一个是Fuel Masker，另外两个是Fuel集群。
+设备1的网络配置：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Fuel6.0在VMWare Workstation上安装OpenStack">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/05/26/deploy_openstack_using_fuel6.0/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-05-25T15:36:10.741Z">
+<meta property="og:description" content="网上很多Fuel安装指导，这里在VMWare Workstation上开三个虚拟机，采用CentOS 6.5。 一个是Fuel Masker，另外两个是Fuel集群。
+设备1的网络配置：">
+<meta property="og:image" content="http://i.imgur.com/W1BQ9Ut.jpg">
+<meta property="og:image" content="http://i.imgur.com/mYeRk9B.jpg">
+<meta property="og:image" content="http://i.imgur.com/CUVL3jw.jpg">
+<meta property="og:image" content="http://i.imgur.com/db29rrG.jpg">
+<meta property="og:image" content="http://i.imgur.com/euylEB4.jpg">
+<meta property="og:updated_time" content="2016-05-26T15:59:08.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description">
+<meta name="twitter:title" content="使用Fuel6.0在VMWare Workstation上安装OpenStack">
+<meta name="twitter:description" content="网上很多Fuel安装指导，这里在VMWare Workstation上开三个虚拟机，采用CentOS 6.5。 一个是Fuel Masker，另外两个是Fuel集群。
+设备1的网络配置：">
+<meta name="twitter:image" content="http://i.imgur.com/W1BQ9Ut.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -50,7 +59,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -239,11 +248,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-deploy_openstack_using_fuel6.0" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404/index.html" class="article-date">
-      <time datetime="2016-05-25T15:36:10.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/2016/05/26/deploy_openstack_using_fuel6.0/" class="article-date">
+      <time datetime="2016-05-26T15:51:50.249Z" itemprop="datePublished">2016-05-26</time>
 </a>
     </div>
   
@@ -256,7 +265,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      使用Fuel6.0在VMWare Workstation上安装OpenStack
     </h1>
   
 
@@ -266,6 +275,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fuel/">fuel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openstack/">openstack</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -273,26 +286,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <p>网上很多Fuel安装指导，这里在VMWare Workstation上开三个虚拟机，采用CentOS 6.5。 一个是Fuel Masker，另外两个是Fuel集群。</p>
+<p>设备1的网络配置：<br><img src="http://i.imgur.com/W1BQ9Ut.jpg" alt=""></p>
+<a id="more"></a>
+<p>设备2的网络配置：</p>
+<p><img src="http://i.imgur.com/mYeRk9B.jpg" alt=""></p>
+<p>下面是我本机PC的网络配置，由于安装了Workstation，PC机的网络配置会多一些：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">以太网适配器 VMware Network Adapter VMnet1:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::b535:82f1:abd4:70ec%24</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 10.20.0.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : </span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet8:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::f163:7dca:e874:7952%25</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.67.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : </span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet2:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::d09e:cbe9:ebac:2d53%26</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 172.16.0.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.0.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : </span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet3:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::d7c:5b31:ca66:fa64%27</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.2.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : </span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet4:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::5c00:f401:bd25:51f7%30</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.3.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . : </span><br><span class="line"></span><br><span class="line">以太网适配器 VMware Network Adapter VMnet5:</span><br><span class="line"></span><br><span class="line">   连接特定的 DNS 后缀 . . . . . . . : </span><br><span class="line">   本地链接 IPv6 地址. . . . . . . . : fe80::7cc8:4451:8da:5d24%31</span><br><span class="line">   IPv4 地址 . . . . . . . . . . . . : 192.168.4.1</span><br><span class="line">   子网掩码  . . . . . . . . . . . . : 255.255.255.0</span><br><span class="line">   默认网关. . . . . . . . . . . . . :</span><br></pre></td></tr></table></figure>
+<p>下面是Fuel集群配置<br><img src="http://i.imgur.com/CUVL3jw.jpg" alt=""></p>
+<p>两个虚拟节点同时配置为Controller和Storage：<br><img src="http://i.imgur.com/db29rrG.jpg" alt=""></p>
+<p>Storage处注意正确勾选:<br><img src="http://i.imgur.com/euylEB4.jpg" alt=""></p>
 
-
-          
-        
       
     </div>
     
@@ -301,8 +305,68 @@
     
 
 
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/27/ceph_radosgw_common_usages/">
+                    ceph radosgw的常用方式
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/26/fuel_ceph_s3_default_service_port/">
+                    Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
 
 
 
@@ -320,7 +384,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"404　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"使用Fuel6.0在VMWare Workstation上安装OpenStack　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -336,7 +400,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="404/index.html" data-title="404" data-url="http://thoughttiger.github.com/404/index.html"></div>
+    <div class="ds-thread" data-thread-key="2016/05/26/deploy_openstack_using_fuel6.0/" data-title="使用Fuel6.0在VMWare Workstation上安装OpenStack" data-url="http://thoughttiger.github.com/2016/05/26/deploy_openstack_using_fuel6.0/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -355,6 +419,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/27/ceph_radosgw_common_usages/" title="Pre: ceph radosgw的常用方式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/26/fuel_ceph_s3_default_service_port/" title="Next: Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/java_s3_api_simple/">Java开发Amazon S3 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ceph_radosgw_common_usages/">ceph radosgw的常用方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/deploy_openstack_using_fuel6.0/">使用Fuel6.0在VMWare Workstation上安装OpenStack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/fuel_ceph_s3_default_service_port/">Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_without_unit_test/">Maven：打包时不执行单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_to_one_exec_jar/">Maven：将所有依赖打包到一个可执行的jar中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/how_to_crack_intellij_15.0.1/">怎样获得IntelliJ 15.0.1 Pro版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/to-build-your-blogs-system-using-hexo/">git+github+hexo+MarkdownPad创建自己博客系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/hello-world/">Hello World</a></li></ul>
 
 
 

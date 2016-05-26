@@ -9,18 +9,23 @@
 
   <meta charset="utf-8">
   
-  <title>404 | Thought_Tiger`s Blogs</title>
+  <title>Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80 | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="http://thoughttiger.github.com/404/index.html">
+  <meta name="description" content="12cd /etc/httpd/conf.d [root@node-1 conf.d]# cat rgw.conf
+123456789101112131415161718192021222324Listen *:6780FastCgiExternalServer /var/www/radosgw/s3gw.fcgi -socket /tmp/radosgw.sock&amp;lt;VirtualHost">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/05/26/fuel_ceph_s3_default_service_port/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-05-25T15:36:10.741Z">
+<meta property="og:description" content="12cd /etc/httpd/conf.d [root@node-1 conf.d]# cat rgw.conf
+123456789101112131415161718192021222324Listen *:6780FastCgiExternalServer /var/www/radosgw/s3gw.fcgi -socket /tmp/radosgw.sock&amp;lt;VirtualHost">
+<meta property="og:image" content="http://i.imgur.com/sPNq6am.jpg">
+<meta property="og:updated_time" content="2016-05-26T15:49:04.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="404">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80">
+<meta name="twitter:description" content="12cd /etc/httpd/conf.d [root@node-1 conf.d]# cat rgw.conf
+123456789101112131415161718192021222324Listen *:6780FastCgiExternalServer /var/www/radosgw/s3gw.fcgi -socket /tmp/radosgw.sock&amp;lt;VirtualHost">
+<meta name="twitter:image" content="http://i.imgur.com/sPNq6am.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -50,7 +55,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -239,11 +244,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-fuel_ceph_s3_default_service_port" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/404/index.html" class="article-date">
-      <time datetime="2016-05-25T15:36:10.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/2016/05/26/fuel_ceph_s3_default_service_port/" class="article-date">
+      <time datetime="2016-05-26T15:47:09.702Z" itemprop="datePublished">2016-05-26</time>
 </a>
     </div>
   
@@ -256,7 +261,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80
     </h1>
   
 
@@ -266,6 +271,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fuel/">fuel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -273,26 +282,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta { display: none; }
-    #container .article .article-title { padding-right: 0; }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover { border-left: none; }
-    .article-title { font-size: 1.6em }
-    .article-entry hr { margin: 0;}
-    .article-meta,
-    #container .article-info-post.article-info { display: none;}
-    #container .article .article-title { padding: 0; }
-</style>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/httpd/conf.d </span><br><span class="line">[root@node-1 conf.d]<span class="comment"># cat rgw.conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Listen *:6780</span><br><span class="line">FastCgiExternalServer /var/www/radosgw/s3gw.fcgi -socket /tmp/radosgw.sock</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> *<span class="attr">:6780</span>&gt;</span></span><br><span class="line">  ServerName node-1.domain.tld</span><br><span class="line">  DocumentRoot /var/www/radosgw</span><br><span class="line"></span><br><span class="line">  RewriteEngine On</span><br><span class="line">  RewriteRule ^/([a-zA-Z0-9-_.]*)([/]?.*) /s3gw.fcgi?page=$1&amp;params=$2&amp;%&#123;QUERY_STRING&#125; [E=HTTP_AUTHORIZATION:%&#123;HTTP:Authorization&#125;,L]</span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">mod_fastcgi.c</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Directory</span> /<span class="attr">var</span>/<span class="attr">www</span>/<span class="attr">radosgw</span>&gt;</span></span><br><span class="line">      Options +ExecCGI</span><br><span class="line">      AllowOverride All</span><br><span class="line">      SetHandler fastcgi-script</span><br><span class="line">      Order allow,deny</span><br><span class="line">      Allow from all</span><br><span class="line">      AuthBasicAuthoritative Off</span><br><span class="line">    <span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  AllowEncodedSlashes On</span><br><span class="line">  ServerSignature Off</span><br><span class="line"><span class="tag">&lt;/<span class="name">VirtualHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/sPNq6am.jpg" alt=""></p>
+<p>所以，测试连接s3应该用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node-1 ~]<span class="comment"># cat a.py</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto</span><br><span class="line"><span class="keyword">import</span> boto.s3.connection</span><br><span class="line">access_key = <span class="string">'Y8RC4X1HDY1Y7YVGPHZ2'</span></span><br><span class="line">secret_key = <span class="string">'IHo5uLsGdtMPeUGedAt3ZOGE+FdbVzYc5XSXXj0t'</span></span><br><span class="line">conn = boto.connect_s3(</span><br><span class="line">aws_access_key_id = access_key,</span><br><span class="line">aws_secret_access_key = secret_key,</span><br><span class="line">host = <span class="string">'node-1'</span>,</span><br><span class="line">port = <span class="number">6780</span>,</span><br><span class="line">is_secure=<span class="keyword">False</span>,</span><br><span class="line">calling_format = boto.s3.connection.OrdinaryCallingFormat(),</span><br><span class="line">)</span><br><span class="line">bucket = conn.create_bucket(<span class="string">'my-new-bucket'</span>)</span><br><span class="line"><span class="keyword">for</span> bucket <span class="keyword">in</span> conn.get_all_buckets():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"&#123;name&#125;\t&#123;created&#125;"</span>.format(</span><br><span class="line">                name = bucket.name,</span><br><span class="line">                created = bucket.creation_date,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node-1 ~]<span class="comment"># python a.py </span></span><br><span class="line">my-new-bucket	2015-12-19T20:47:27.000Z</span><br></pre></td></tr></table></figure>
 
-
-          
-        
       
     </div>
     
@@ -301,8 +298,68 @@
     
 
 
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/26/deploy_openstack_using_fuel6.0/">
+                    使用Fuel6.0在VMWare Workstation上安装OpenStack
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/26/maven_pack_without_unit_test/">
+                    Maven：打包时不执行单元测试
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+<script>
+    var valueHide = "Hide";
+    var valueShow = "Show";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
 
 
 
@@ -320,7 +377,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"404　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -336,7 +393,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="404/index.html" data-title="404" data-url="http://thoughttiger.github.com/404/index.html"></div>
+    <div class="ds-thread" data-thread-key="2016/05/26/fuel_ceph_s3_default_service_port/" data-title="Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80" data-url="http://thoughttiger.github.com/2016/05/26/fuel_ceph_s3_default_service_port/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -355,6 +412,26 @@
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/26/deploy_openstack_using_fuel6.0/" title="Pre: 使用Fuel6.0在VMWare Workstation上安装OpenStack">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/26/maven_pack_without_unit_test/" title="Next: Maven：打包时不执行单元测试">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/java_s3_api_simple/">Java开发Amazon S3 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ceph_radosgw_common_usages/">ceph radosgw的常用方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/deploy_openstack_using_fuel6.0/">使用Fuel6.0在VMWare Workstation上安装OpenStack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/fuel_ceph_s3_default_service_port/">Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_without_unit_test/">Maven：打包时不执行单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_to_one_exec_jar/">Maven：将所有依赖打包到一个可执行的jar中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/how_to_crack_intellij_15.0.1/">怎样获得IntelliJ 15.0.1 Pro版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/to-build-your-blogs-system-using-hexo/">git+github+hexo+MarkdownPad创建自己博客系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/hello-world/">Hello World</a></li></ul>
 
 
 

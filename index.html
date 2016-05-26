@@ -172,7 +172,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuel/">fuel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openstack/">openstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s3/">s3</a></li></ul>
                     </div>
                 </section>
                 
@@ -244,6 +244,258 @@
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-java_s3_api_simple" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/27/java_s3_api_simple/" class="article-date">
+      <time datetime="2016-05-26T16:07:15.823Z" itemprop="datePublished">2016-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/27/java_s3_api_simple/">Java开发Amazon S3 API</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="eclipse插件"><a href="#eclipse插件" class="headerlink" title="eclipse插件"></a>eclipse插件</h1><p><img src="http://i.imgur.com/Oa6XkV4.jpg" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/05/27/java_s3_api_simple/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ceph_radosgw_common_usages" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/27/ceph_radosgw_common_usages/" class="article-date">
+      <time datetime="2016-05-26T16:05:05.154Z" itemprop="datePublished">2016-05-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/27/ceph_radosgw_common_usages/">ceph radosgw的常用方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="创建一个用户"><a href="#创建一个用户" class="headerlink" title="创建一个用户"></a>创建一个用户</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node-1 ~]<span class="comment"># radosgw-admin user create --uid=johndoe --display-name="John Doe" --email=john@example.com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"user_id"</span>: <span class="string">"johndoe"</span>,</span><br><span class="line">  <span class="attr">"display_name"</span>: <span class="string">"John Doe"</span>,</span><br><span class="line">  <span class="attr">"email"</span>: <span class="string">"john@example.com"</span>,</span><br><span class="line">  <span class="attr">"suspended"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"max_buckets"</span>: <span class="number">1000</span>,</span><br><span class="line">  <span class="attr">"auid"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"subusers"</span>: [],</span><br><span class="line">  <span class="attr">"keys"</span>: [</span><br><span class="line">        &#123; <span class="attr">"user"</span>: <span class="string">"johndoe"</span>,</span><br><span class="line">          <span class="attr">"access_key"</span>: <span class="string">"GKPJJVJDU84KEZCHK56D"</span>,</span><br><span class="line">          <span class="attr">"secret_key"</span>: <span class="string">"UTW8Q0V8MlOnkxslS1an4Ghkc0JD7\/sIFTwwJtLU"</span>&#125;],</span><br><span class="line">  <span class="attr">"swift_keys"</span>: [],</span><br><span class="line">  <span class="attr">"caps"</span>: [],</span><br><span class="line">  <span class="attr">"op_mask"</span>: <span class="string">"read, write, delete"</span>,</span><br><span class="line">  <span class="attr">"default_placement"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"placement_tags"</span>: [],</span><br><span class="line">  <span class="attr">"bucket_quota"</span>: &#123; <span class="attr">"enabled"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"max_size_kb"</span>: <span class="number">-1</span>,</span><br><span class="line">      <span class="attr">"max_objects"</span>: <span class="number">-1</span>&#125;,</span><br><span class="line">  <span class="attr">"user_quota"</span>: &#123; <span class="attr">"enabled"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">"max_size_kb"</span>: <span class="number">-1</span>,</span><br><span class="line">      <span class="attr">"max_objects"</span>: <span class="number">-1</span>&#125;,</span><br><span class="line">  <span class="attr">"temp_url_keys"</span>: []&#125;</span><br></pre></td></tr></table></figure>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openstack/">openstack</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/05/27/ceph_radosgw_common_usages/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-deploy_openstack_using_fuel6.0" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/26/deploy_openstack_using_fuel6.0/" class="article-date">
+      <time datetime="2016-05-26T15:51:50.249Z" itemprop="datePublished">2016-05-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/26/deploy_openstack_using_fuel6.0/">使用Fuel6.0在VMWare Workstation上安装OpenStack</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>网上很多Fuel安装指导，这里在VMWare Workstation上开三个虚拟机，采用CentOS 6.5。 一个是Fuel Masker，另外两个是Fuel集群。</p>
+<p>设备1的网络配置：<br><img src="http://i.imgur.com/W1BQ9Ut.jpg" alt=""></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fuel/">fuel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openstack/">openstack</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/05/26/deploy_openstack_using_fuel6.0/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-fuel_ceph_s3_default_service_port" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/26/fuel_ceph_s3_default_service_port/" class="article-date">
+      <time datetime="2016-05-26T15:47:09.702Z" itemprop="datePublished">2016-05-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/26/fuel_ceph_s3_default_service_port/">Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/httpd/conf.d </span><br><span class="line">[root@node-1 conf.d]<span class="comment"># cat rgw.conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Listen *:6780</span><br><span class="line">FastCgiExternalServer /var/www/radosgw/s3gw.fcgi -socket /tmp/radosgw.sock</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">VirtualHost</span> *<span class="attr">:6780</span>&gt;</span></span><br><span class="line">  ServerName node-1.domain.tld</span><br><span class="line">  DocumentRoot /var/www/radosgw</span><br><span class="line"></span><br><span class="line">  RewriteEngine On</span><br><span class="line">  RewriteRule ^/([a-zA-Z0-9-_.]*)([/]?.*) /s3gw.fcgi?page=$1&amp;params=$2&amp;%&#123;QUERY_STRING&#125; [E=HTTP_AUTHORIZATION:%&#123;HTTP:Authorization&#125;,L]</span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">IfModule</span> <span class="attr">mod_fastcgi.c</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Directory</span> /<span class="attr">var</span>/<span class="attr">www</span>/<span class="attr">radosgw</span>&gt;</span></span><br><span class="line">      Options +ExecCGI</span><br><span class="line">      AllowOverride All</span><br><span class="line">      SetHandler fastcgi-script</span><br><span class="line">      Order allow,deny</span><br><span class="line">      Allow from all</span><br><span class="line">      AuthBasicAuthoritative Off</span><br><span class="line">    <span class="tag">&lt;/<span class="name">Directory</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">IfModule</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  AllowEncodedSlashes On</span><br><span class="line">  ServerSignature Off</span><br><span class="line"><span class="tag">&lt;/<span class="name">VirtualHost</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/sPNq6am.jpg" alt=""></p>
+<p>所以，测试连接s3应该用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@node-1 ~]<span class="comment"># cat a.py</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> boto</span><br><span class="line"><span class="keyword">import</span> boto.s3.connection</span><br><span class="line">access_key = <span class="string">'Y8RC4X1HDY1Y7YVGPHZ2'</span></span><br><span class="line">secret_key = <span class="string">'IHo5uLsGdtMPeUGedAt3ZOGE+FdbVzYc5XSXXj0t'</span></span><br><span class="line">conn = boto.connect_s3(</span><br><span class="line">aws_access_key_id = access_key,</span><br><span class="line">aws_secret_access_key = secret_key,</span><br><span class="line">host = <span class="string">'node-1'</span>,</span><br><span class="line">port = <span class="number">6780</span>,</span><br><span class="line">is_secure=<span class="keyword">False</span>,</span><br><span class="line">calling_format = boto.s3.connection.OrdinaryCallingFormat(),</span><br><span class="line">)</span><br><span class="line">bucket = conn.create_bucket(<span class="string">'my-new-bucket'</span>)</span><br><span class="line"><span class="keyword">for</span> bucket <span class="keyword">in</span> conn.get_all_buckets():</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"&#123;name&#125;\t&#123;created&#125;"</span>.format(</span><br><span class="line">                name = bucket.name,</span><br><span class="line">                created = bucket.creation_date,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@node-1 ~]<span class="comment"># python a.py </span></span><br><span class="line">my-new-bucket	2015-12-19T20:47:27.000Z</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ceph/">ceph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fuel/">fuel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-maven_pack_without_unit_test" class="article article-type-post" itemscope itemprop="blogPost">
   
