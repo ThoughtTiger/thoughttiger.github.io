@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+  <meta charset="utf-8">
+  
+  <title>Amazon AWS抓包学习S3： 1、代码原型 | Thought_Tiger`s Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先注册一个AWS账户，并在Amazon官网获得AK\SK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Amazon AWS抓包学习S3： 1、代码原型">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/05/28/learn_s3_1/index.html">
+<meta property="og:site_name" content="Thought_Tiger`s Blogs">
+<meta property="og:description" content="首先注册一个AWS账户，并在Amazon官网获得AK\SK">
+<meta property="og:updated_time" content="2016-05-28T15:49:47.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Amazon AWS抓包学习S3： 1、代码原型">
+<meta name="twitter:description" content="首先注册一个AWS账户，并在Amazon官网获得AK\SK">
+  
+    <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+  
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js",
+          search: undefined
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?9bd71d3ec62adcf2e47932ad4a45cf52";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Thought_Tiger</a></h1>
+        </hgroup>
+
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuel/">fuel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openstack/">openstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s3/">s3</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于前端</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-learn_s3_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/28/learn_s3_1/" class="article-date">
+      <time datetime="2016-05-28T15:43:11.920Z" itemprop="datePublished">2016-05-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Amazon AWS抓包学习S3： 1、代码原型
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>首先注册一个AWS账户，并在Amazon官网获得AK\SK</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">	System.setProperty(SDKGlobalConfiguration.ENABLE_S3_SIGV4_SYSTEM_PROPERTY, <span class="string">"true"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span><br><span class="line">	 * The ProfileCredentialsProvider will return your [default] credential</span><br><span class="line">	 * profile by reading from the credentials file located at</span><br><span class="line">	 * (C:\\Users\\Administrator\\.aws\\credentials).</span><br><span class="line">	 */</span></span><br><span class="line">	AWSCredentials credentials = <span class="keyword">null</span>;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		String accessKey = <span class="string">"******************"</span>;</span><br><span class="line">		String secretKey = <span class="string">"*******************"</span>;</span><br><span class="line">		credentials = <span class="keyword">new</span> BasicAWSCredentials(accessKey, secretKey);</span><br><span class="line">		<span class="comment">// credentials = new</span></span><br><span class="line">		<span class="comment">// ProfileCredentialsProvider("default").getCredentials();</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> AmazonClientException(<span class="string">"Cannot load the credentials from the credential profiles file. "</span></span><br><span class="line">				+ <span class="string">"Please make sure that your credentials file is at the correct "</span></span><br><span class="line">				+ <span class="string">"location (C:\\Users\\Administrator\\.aws\\credentials), and is in valid format."</span>, e);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ClientConfiguration clientConfig = <span class="keyword">new</span> ClientConfiguration();</span><br><span class="line">	clientConfig.setProtocol(Protocol.HTTP);</span><br><span class="line"></span><br><span class="line">	AmazonS3 s3 = <span class="keyword">new</span> AmazonS3Client(credentials, clientConfig);</span><br><span class="line">	Region usWest2 = Region.getRegion(Regions.US_WEST_2);</span><br><span class="line">	s3.setRegion(usWest2);</span><br><span class="line"></span><br><span class="line">	String bucketName = <span class="string">"my-first-s3-bucket-"</span> + UUID.randomUUID();</span><br><span class="line">	String key = <span class="string">"MyObjectKey"</span>;</span><br><span class="line"></span><br><span class="line">	System.out.println(<span class="string">"==========================================="</span>);</span><br><span class="line">	System.out.println(<span class="string">"Getting Started with Amazon S3"</span>);</span><br><span class="line">	System.out.println(<span class="string">"===========================================\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Create a new S3 bucket - Amazon S3 bucket names are globally</span><br><span class="line">		 * unique, so once a bucket name has been taken by any user, you</span><br><span class="line">		 * can't create another bucket with that same name.</span><br><span class="line">		 *</span><br><span class="line">		 * You can optionally specify a location for your bucket if you want</span><br><span class="line">		 * to keep your data closer to your applications or users.</span><br><span class="line">		 */</span></span><br><span class="line">		System.out.println(<span class="string">"Creating bucket "</span> + bucketName + <span class="string">"\n"</span>);</span><br><span class="line">		s3.createBucket(bucketName);</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * List the buckets in your account</span><br><span class="line">		 */</span></span><br><span class="line">		System.out.println(<span class="string">"Listing buckets"</span>);</span><br><span class="line">		<span class="keyword">for</span> (Bucket bucket : s3.listBuckets()) &#123;</span><br><span class="line">			System.out.println(<span class="string">" - "</span> + bucket.getName());</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Upload an object to your bucket - You can easily upload a file to</span><br><span class="line">		 * S3, or upload directly an InputStream if you know the length of</span><br><span class="line">		 * the data in the stream. You can also specify your own metadata</span><br><span class="line">		 * when uploading to S3, which allows you set a variety of options</span><br><span class="line">		 * like content-type and content-encoding, plus additional metadata</span><br><span class="line">		 * specific to your applications.</span><br><span class="line">		 */</span></span><br><span class="line">		System.out.println(<span class="string">"Uploading a new object to S3 from a file\n"</span>);</span><br><span class="line">		s3.putObject(<span class="keyword">new</span> PutObjectRequest(bucketName, key, createSampleFile()));</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Download an object - When you download an object, you get all of</span><br><span class="line">		 * the object's metadata and a stream from which to read the</span><br><span class="line">		 * contents. It's important to read the contents of the stream as</span><br><span class="line">		 * quickly as possibly since the data is streamed directly from</span><br><span class="line">		 * Amazon S3 and your network connection will remain open until you</span><br><span class="line">		 * read all the data or close the input stream.</span><br><span class="line">		 *</span><br><span class="line">		 * GetObjectRequest also supports several other options, including</span><br><span class="line">		 * conditional downloading of objects based on modification times,</span><br><span class="line">		 * ETags, and selectively downloading a range of an object.</span><br><span class="line">		 */</span></span><br><span class="line">		System.out.println(<span class="string">"Downloading an object"</span>);</span><br><span class="line">		S3Object object = s3.getObject(<span class="keyword">new</span> GetObjectRequest(bucketName, key));</span><br><span class="line">		System.out.println(<span class="string">"Content-Type: "</span> + object.getObjectMetadata().getContentType());</span><br><span class="line">		displayTextInputStream(object.getObjectContent());</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * List objects in your bucket by prefix - There are many options</span><br><span class="line">		 * for listing the objects in your bucket. Keep in mind that buckets</span><br><span class="line">		 * with many objects might truncate their results when listing their</span><br><span class="line">		 * objects, so be sure to check if the returned object listing is</span><br><span class="line">		 * truncated, and use the AmazonS3.listNextBatchOfObjects(...)</span><br><span class="line">		 * operation to retrieve additional results.</span><br><span class="line">		 */</span></span><br><span class="line">		System.out.println(<span class="string">"Listing objects"</span>);</span><br><span class="line">		ObjectListing objectListing = s3</span><br><span class="line">				.listObjects(<span class="keyword">new</span> ListObjectsRequest().withBucketName(bucketName).withPrefix(<span class="string">"My"</span>));</span><br><span class="line">		<span class="keyword">for</span> (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) &#123;</span><br><span class="line">			System.out.println(<span class="string">" - "</span> + objectSummary.getKey() + <span class="string">"  "</span> + <span class="string">"(size = "</span> + objectSummary.getSize() + <span class="string">")"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println();</span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Delete an object - Unless versioning has been turned on for your</span><br><span class="line">		 * bucket, there is no way to undelete an object, so use caution</span><br><span class="line">		 * when deleting objects.</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="comment">// System.out.println("Deleting an object\n");</span></span><br><span class="line">		<span class="comment">// s3.deleteObject(bucketName, key);</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">/*</span><br><span class="line">		 * Delete a bucket - A bucket must be completely empty before it can</span><br><span class="line">		 * be deleted, so remember to delete any objects from your buckets</span><br><span class="line">		 * before you try to delete them.</span><br><span class="line">		 */</span></span><br><span class="line">		<span class="comment">// System.out.println("Deleting bucket " + bucketName + "\n");</span></span><br><span class="line">		<span class="comment">// s3.deleteBucket(bucketName);</span></span><br><span class="line">	&#125; <span class="keyword">catch</span> (AmazonServiceException ase) &#123;</span><br><span class="line">		System.out.println(<span class="string">"Caught an AmazonServiceException, which means your request made it "</span></span><br><span class="line">				+ <span class="string">"to Amazon S3, but was rejected with an error response for some reason."</span>);</span><br><span class="line">		System.out.println(<span class="string">"Error Message:    "</span> + ase.getMessage());</span><br><span class="line">		System.out.println(<span class="string">"HTTP Status Code: "</span> + ase.getStatusCode());</span><br><span class="line">		System.out.println(<span class="string">"AWS Error Code:   "</span> + ase.getErrorCode());</span><br><span class="line">		System.out.println(<span class="string">"Error Type:       "</span> + ase.getErrorType());</span><br><span class="line">		System.out.println(<span class="string">"Request ID:       "</span> + ase.getRequestId());</span><br><span class="line">	&#125; <span class="keyword">catch</span> (AmazonClientException ace) &#123;</span><br><span class="line">		System.out.println(<span class="string">"Caught an AmazonClientException, which means the client encountered "</span></span><br><span class="line">				+ <span class="string">"a serious internal problem while trying to communicate with S3, "</span></span><br><span class="line">				+ <span class="string">"such as not being able to access the network."</span>);</span><br><span class="line">		System.out.println(<span class="string">"Error Message: "</span> + ace.getMessage());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Creates a temporary file with text data to demonstrate uploading a file</span><br><span class="line"> * to Amazon S3</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@return</span> A newly created temporary file with text data.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@throws</span> IOException</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> File <span class="title">createSampleFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	File file = File.createTempFile(<span class="string">"aws-java-sdk-"</span>, <span class="string">".txt"</span>);</span><br><span class="line">	file.deleteOnExit();</span><br><span class="line"></span><br><span class="line">	Writer writer = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(file));</span><br><span class="line">	writer.write(<span class="string">"abcdefghijklmnopqrstuvwxyz\n"</span>);</span><br><span class="line">	writer.write(<span class="string">"01234567890112345678901234\n"</span>);</span><br><span class="line">	writer.write(<span class="string">"!@#$%^&amp;*()-=[]&#123;&#125;;':',.&lt;&gt;/?\n"</span>);</span><br><span class="line">	writer.write(<span class="string">"01234567890112345678901234\n"</span>);</span><br><span class="line">	writer.write(<span class="string">"abcdefghijklmnopqrstuvwxyz\n"</span>);</span><br><span class="line">	writer.close();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> file;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Displays the contents of the specified input stream as text.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> input</span><br><span class="line"> *            The input stream to display as text.</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@throws</span> IOException</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">displayTextInputStream</span><span class="params">(InputStream input)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">	BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(input));</span><br><span class="line">	<span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">		String line = reader.readLine();</span><br><span class="line">		<span class="keyword">if</span> (line == <span class="keyword">null</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">"    "</span> + line);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后进行WireShark抓包。通过抓包获取AWS的ip地址，并进行过滤，比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip.dst==54.231.161.73 || ip.src==54.231.161.73</span><br></pre></td></tr></table></figure>
+<p>注意，为了通过WireShark抓包学习，要把HTTPS禁用（默认使用HTTPS）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ClientConfiguration clientConfig = <span class="keyword">new</span> ClientConfiguration();</span><br><span class="line">		clientConfig.setProtocol(Protocol.HTTP);</span><br><span class="line">AmazonS3 s3 = <span class="keyword">new</span> AmazonS3Client(credentials, clientConfig);</span><br></pre></td></tr></table></figure>
+<p>初始化配置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">System.setProperty(SDKGlobalConfiguration.ENABLE_S3_SIGV4_SYSTEM_PROPERTY, <span class="string">"true"</span>);</span><br><span class="line">AmazonS3 s3 = <span class="keyword">new</span> AmazonS3Client(credentials, clientConfig);</span><br><span class="line">		Region usWest2 = Region.getRegion(Regions.US_WEST_2);</span><br><span class="line">		s3.setRegion(usWest2);</span><br><span class="line"></span><br><span class="line">		String bucketName = <span class="string">"my-first-s3-bucket-"</span> + UUID.randomUUID();</span><br><span class="line">		String key = <span class="string">"MyObjectKey"</span>;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/05/28/learn_s3_2/">
+                    Amazon AWS抓包学习S3： 2、创建桶抓包分析
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/05/27/java_s3_api_simple/">
+                    Java开发Amazon S3 API
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Amazon AWS抓包学习S3： 1、代码原型　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/05/28/learn_s3_1/" data-title="Amazon AWS抓包学习S3： 1、代码原型" data-url="http://thoughttiger.github.com/2016/05/28/learn_s3_1/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thoughttiger"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/05/28/learn_s3_2/" title="上一篇: Amazon AWS抓包学习S3： 2、创建桶抓包分析">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/05/27/java_s3_api_simple/" title="下一篇: Java开发Amazon S3 API">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/learn_s3_2/">Amazon AWS抓包学习S3： 2、创建桶抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/learn_s3_1/">Amazon AWS抓包学习S3： 1、代码原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/java_s3_api_simple/">Java开发Amazon S3 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ceph_radosgw_common_usages/">ceph radosgw的常用方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/deploy_openstack_using_fuel6.0/">使用Fuel6.0在VMWare Workstation上安装OpenStack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/fuel_ceph_s3_default_service_port/">Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_without_unit_test/">Maven：打包时不执行单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_to_one_exec_jar/">Maven：将所有依赖打包到一个可执行的jar中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/how_to_crack_intellij_15.0.1/">怎样获得IntelliJ 15.0.1 Pro版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/to-build-your-blogs-system-using-hexo/">git+github+hexo+MarkdownPad创建自己博客系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Thought_Tiger
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
