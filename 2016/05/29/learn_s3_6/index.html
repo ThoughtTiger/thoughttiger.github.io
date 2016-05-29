@@ -9,18 +9,24 @@
 
   <meta charset="utf-8">
   
-  <title>Maven：打包时不执行单元测试 | Thought_Tiger`s Blogs</title>
+  <title>Amazon AWS抓包学习S3： 6、对一个对象产生签名URL | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
+  <meta name="description" content="12GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(bucketName, key);System.out.println(s3.generatePresignedUrl(request));
+事实上，根本就不会对服务端进行请求。本地计算生成URL而已。默认过期时间是15分钟（900秒）
+http://my">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven：打包时不执行单元测试">
-<meta property="og:url" content="http://thoughttiger.github.com/2016/05/26/maven_pack_without_unit_test/index.html">
+<meta property="og:title" content="Amazon AWS抓包学习S3： 6、对一个对象产生签名URL">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/05/29/learn_s3_6/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
-<meta property="og:description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
-<meta property="og:updated_time" content="2016-05-26T15:33:59.137Z">
+<meta property="og:description" content="12GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(bucketName, key);System.out.println(s3.generatePresignedUrl(request));
+事实上，根本就不会对服务端进行请求。本地计算生成URL而已。默认过期时间是15分钟（900秒）
+http://my">
+<meta property="og:updated_time" content="2016-05-29T14:47:11.424Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven：打包时不执行单元测试">
-<meta name="twitter:description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
+<meta name="twitter:title" content="Amazon AWS抓包学习S3： 6、对一个对象产生签名URL">
+<meta name="twitter:description" content="12GeneratePresignedUrlRequest request = new GeneratePresignedUrlRequest(bucketName, key);System.out.println(s3.generatePresignedUrl(request));
+事实上，根本就不会对服务端进行请求。本地计算生成URL而已。默认过期时间是15分钟（900秒）
+http://my">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -246,11 +252,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-maven_pack_without_unit_test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-learn_s3_6" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/26/maven_pack_without_unit_test/" class="article-date">
-      <time datetime="2016-05-26T15:33:59.098Z" itemprop="datePublished">2016-05-26</time>
+      <a href="/2016/05/29/learn_s3_6/" class="article-date">
+      <time datetime="2016-05-29T14:46:01.401Z" itemprop="datePublished">2016-05-29</time>
 </a>
     </div>
   
@@ -263,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Maven：打包时不执行单元测试
+      Amazon AWS抓包学习S3： 6、对一个对象产生签名URL
     </h1>
   
 
@@ -274,7 +280,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -284,7 +290,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 不进行 单元测试 --&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.18.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GeneratePresignedUrlRequest request = <span class="keyword">new</span> GeneratePresignedUrlRequest(bucketName, key);</span><br><span class="line">System.out.println(s3.generatePresignedUrl(request));</span><br></pre></td></tr></table></figure>
+<p>事实上，根本就不会对服务端进行请求。本地计算生成URL而已。默认过期时间是15分钟（900秒）</p>
+<p><a href="http://my-new-bucket-3.s3-us-west-2.amazonaws.com/MyObjectKey?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20160117T135513Z&amp;X-Amz-SignedHeaders=host&amp;**X-Amz-Expires=900**&amp;X-Amz-Credential=AKIAJPB5HL3WWWTZCIIQ%2F20160117%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Signature=bcea335dd95b5419eee0ad26e050ddfb3621009b6b9213647c2e2b5711a12296" target="_blank" rel="external">http://my-new-bucket-3.s3-us-west-2.amazonaws.com/MyObjectKey?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Date=20160117T135513Z&amp;X-Amz-SignedHeaders=host&amp;**X-Amz-Expires=900**&amp;X-Amz-Credential=AKIAJPB5HL3WWWTZCIIQ%2F20160117%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Signature=bcea335dd95b5419eee0ad26e050ddfb3621009b6b9213647c2e2b5711a12296</a></p>
+
       
     </div>
     
@@ -295,16 +304,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/26/fuel_ceph_s3_default_service_port/">
-                    Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/26/maven_pack_to_one_exec_jar/">
-                    Maven：将所有依赖打包到一个可执行的jar中
+                <a href="/2016/05/29/learn_s3_5/">
+                    Amazon AWS抓包学习S3： 5、下载一个文件抓包分析
                 </a>
             </div>
         
@@ -372,7 +375,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Maven：打包时不执行单元测试　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Amazon AWS抓包学习S3： 6、对一个对象产生签名URL　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -388,7 +391,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/26/maven_pack_without_unit_test/" data-title="Maven：打包时不执行单元测试" data-url="http://thoughttiger.github.com/2016/05/26/maven_pack_without_unit_test/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/29/learn_s3_6/" data-title="Amazon AWS抓包学习S3： 6、对一个对象产生签名URL" data-url="http://thoughttiger.github.com/2016/05/29/learn_s3_6/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -412,15 +415,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/26/fuel_ceph_s3_default_service_port/" title="Pre: Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/26/maven_pack_to_one_exec_jar/" title="Next: Maven：将所有依赖打包到一个可执行的jar中">
+            <a href="/2016/05/29/learn_s3_5/" title="Next: Amazon AWS抓包学习S3： 5、下载一个文件抓包分析">
                 <i class="fa fa-angle-right"></i>
             </a>
         

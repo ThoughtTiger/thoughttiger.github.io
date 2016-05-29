@@ -9,18 +9,18 @@
 
   <meta charset="utf-8">
   
-  <title>Maven：打包时不执行单元测试 | Thought_Tiger`s Blogs</title>
+  <title>Amazon AWS抓包学习S3： 3、获得桶列表抓包分析 | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
+  <meta name="description" content="1234System.out.println(&quot;Listing buckets&quot;);for (Bucket bucket : s3.listBuckets()) &amp;#123;	System.out.println(&quot; - &quot; + bucket.getName());&amp;#125;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven：打包时不执行单元测试">
-<meta property="og:url" content="http://thoughttiger.github.com/2016/05/26/maven_pack_without_unit_test/index.html">
+<meta property="og:title" content="Amazon AWS抓包学习S3： 3、获得桶列表抓包分析">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/05/29/learn_s3_3/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
-<meta property="og:description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
-<meta property="og:updated_time" content="2016-05-26T15:33:59.137Z">
+<meta property="og:description" content="1234System.out.println(&quot;Listing buckets&quot;);for (Bucket bucket : s3.listBuckets()) &amp;#123;	System.out.println(&quot; - &quot; + bucket.getName());&amp;#125;">
+<meta property="og:updated_time" content="2016-05-29T14:36:57.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven：打包时不执行单元测试">
-<meta name="twitter:description" content="123456789&amp;lt;!-- 不进行 单元测试 --&amp;gt;         &amp;lt;plugin&amp;gt;             &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;             &amp;lt;artifactId&amp;gt;maven-surefire-plugin&amp;lt;/artifactId&amp;gt;">
+<meta name="twitter:title" content="Amazon AWS抓包学习S3： 3、获得桶列表抓包分析">
+<meta name="twitter:description" content="1234System.out.println(&quot;Listing buckets&quot;);for (Bucket bucket : s3.listBuckets()) &amp;#123;	System.out.println(&quot; - &quot; + bucket.getName());&amp;#125;">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -246,11 +246,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-maven_pack_without_unit_test" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-learn_s3_3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/26/maven_pack_without_unit_test/" class="article-date">
-      <time datetime="2016-05-26T15:33:59.098Z" itemprop="datePublished">2016-05-26</time>
+      <a href="/2016/05/29/learn_s3_3/" class="article-date">
+      <time datetime="2016-05-29T14:33:34.450Z" itemprop="datePublished">2016-05-29</time>
 </a>
     </div>
   
@@ -263,7 +263,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Maven：打包时不执行单元测试
+      Amazon AWS抓包学习S3： 3、获得桶列表抓包分析
     </h1>
   
 
@@ -274,7 +274,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -284,7 +284,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 不进行 单元测试 --&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-surefire-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.18.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">skipTests</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skipTests</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"Listing buckets"</span>);</span><br><span class="line"><span class="keyword">for</span> (Bucket bucket : s3.listBuckets()) &#123;</span><br><span class="line">	System.out.println(<span class="string">" - "</span> + bucket.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>HTTP请求（GET）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Hypertext Transfer Protocol</span><br><span class="line">    GET / HTTP/1.1\r\n</span><br><span class="line">        [Expert Info (Chat/Sequence): GET / HTTP/1.1\r\n]</span><br><span class="line">        Request Method: GET</span><br><span class="line">        Request URI: /</span><br><span class="line">        Request Version: HTTP/1.1</span><br><span class="line">    Host: s3-us-west-2.amazonaws.com\r\n</span><br><span class="line">    X-Amz-Date: 20160117T132322Z\r\n</span><br><span class="line">     [truncated]Authorization: AWS4-HMAC-SHA256 Credential=AKIAJPB5HL3WWWTZCIIQ/20160117/us-west-2/s3/aws4_request, SignedHeaders=content-type;host;user-agent;x-amz-content-sha256;x-amz-date, Signature=2511e6d1474778b0b1a8910283af4a6744c2aab9a</span><br><span class="line">    User-Agent: aws-sdk-java/1.10.42 Windows_7/6.1 Java_HotSpot(TM)_64-Bit_Server_VM/24.79-b02/1.7.0_79\r\n</span><br><span class="line">    x-amz-content-sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\r\n</span><br><span class="line">    Content-Type: application/octet-stream\r\n</span><br><span class="line">    Connection: Keep-Alive\r\n</span><br><span class="line">    \r\n</span><br><span class="line">    [Full request URI: http://s3-us-west-2.amazonaws.com/]</span><br><span class="line">    [HTTP request 1/1]</span><br><span class="line">    [Response in frame: 287]</span><br></pre></td></tr></table></figure></p>
+<p>HTTP响应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">Hypertext Transfer Protocol</span><br><span class="line">    HTTP/1.1 200 OK\r\n</span><br><span class="line">        [Expert Info (Chat/Sequence): HTTP/1.1 200 OK\r\n]</span><br><span class="line">        Request Version: HTTP/1.1</span><br><span class="line">        Status Code: 200</span><br><span class="line">        Response Phrase: OK</span><br><span class="line">    x-amz-id-2: rpbWI1ZJwg47aglW0hRYlGio0d0vpHKbaXQ3t5aW8/0F0bjlZEt3fo6HWHDFtLDpTHKd9UZpESg=\r\n</span><br><span class="line">    x-amz-request-id: 8A0FA549CD1A428F\r\n</span><br><span class="line">    Date: Sun, 17 Jan 2016 13:23:24 GMT\r\n</span><br><span class="line">    Content-Type: application/xml\r\n</span><br><span class="line">    Transfer-Encoding: chunked\r\n</span><br><span class="line">    Server: AmazonS3\r\n</span><br><span class="line">    \r\n</span><br><span class="line">    [HTTP response 1/1]</span><br><span class="line">    [Time since request: 0.461682000 seconds]</span><br><span class="line">    [Request in frame: 282]</span><br><span class="line">    HTTP chunked response</span><br><span class="line">        Data chunk (754 octets)</span><br><span class="line">        End of chunked encoding</span><br><span class="line">        \r\n</span><br><span class="line">eXtensible Markup Language</span><br><span class="line">    &lt;?xml</span><br><span class="line">        version=&quot;1.0&quot;</span><br><span class="line">        encoding=&quot;UTF-8&quot;</span><br><span class="line">        ?&gt;</span><br><span class="line">    &lt;ListAllMyBucketsResult</span><br><span class="line">        xmlns=&quot;http://s3.amazonaws.com/doc/2006-03-01/&quot;&gt;</span><br><span class="line">        &lt;Owner&gt;</span><br><span class="line">            &lt;ID&gt;</span><br><span class="line">                570c981dcbd731799ded04fe0aa78b18dd3a707110aecf0786d404787dc09631</span><br><span class="line">                &lt;/ID&gt;</span><br><span class="line">            &lt;DisplayName&gt;</span><br><span class="line">                onlinego</span><br><span class="line">                &lt;/DisplayName&gt;</span><br><span class="line">            &lt;/Owner&gt;</span><br><span class="line">        &lt;Buckets&gt;</span><br><span class="line">            &lt;Bucket&gt;</span><br><span class="line">                &lt;Name&gt;</span><br><span class="line">                    my-first-s3-bucket-d0f98e15-0a55-4d57-a90e-c92878e3693e</span><br><span class="line">                    &lt;/Name&gt;</span><br><span class="line">                &lt;CreationDate&gt;</span><br><span class="line">                    2016-01-17T13:02:59.000Z</span><br><span class="line">                    &lt;/CreationDate&gt;</span><br><span class="line">                &lt;/Bucket&gt;</span><br><span class="line">            &lt;Bucket&gt;</span><br><span class="line">                &lt;Name&gt;</span><br><span class="line">                    my-first-s3-bucket-f8c3837f-a78d-4709-87e7-ef832aba6a1b</span><br><span class="line">                    &lt;/Name&gt;</span><br><span class="line">                &lt;CreationDate&gt;</span><br><span class="line">                    2016-01-17T12:49:48.000Z</span><br><span class="line">                    &lt;/CreationDate&gt;</span><br><span class="line">                &lt;/Bucket&gt;</span><br><span class="line">            &lt;Bucket&gt;</span><br><span class="line">                &lt;Name&gt;</span><br><span class="line">                    my-new-bucket-2</span><br><span class="line">                    &lt;/Name&gt;</span><br><span class="line">                &lt;CreationDate&gt;</span><br><span class="line">                    2016-01-03T14:45:50.000Z</span><br><span class="line">                    &lt;/CreationDate&gt;</span><br><span class="line">                &lt;/Bucket&gt;</span><br><span class="line">            &lt;Bucket&gt;</span><br><span class="line">                &lt;Name&gt;</span><br><span class="line">                    new-bucket-9320e95b</span><br><span class="line">                    &lt;/Name&gt;</span><br><span class="line">                &lt;CreationDate&gt;</span><br><span class="line">                    2016-01-01T07:42:23.000Z</span><br><span class="line">                    &lt;/CreationDate&gt;</span><br><span class="line">                &lt;/Bucket&gt;</span><br><span class="line">            &lt;/Buckets&gt;</span><br><span class="line">        &lt;/ListAllMyBucketsResult&gt;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -296,15 +300,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/05/26/fuel_ceph_s3_default_service_port/">
-                    Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80
+                <a href="/2016/05/29/learn_s3_4/">
+                    Amazon AWS抓包学习S3： 4、上传一个文件抓包分析
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/05/26/maven_pack_to_one_exec_jar/">
-                    Maven：将所有依赖打包到一个可执行的jar中
+                <a href="/2016/05/29/github_trouble_shooting_with_proxy/">
+                    翻墙访问github
                 </a>
             </div>
         
@@ -372,7 +376,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Maven：打包时不执行单元测试　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Amazon AWS抓包学习S3： 3、获得桶列表抓包分析　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -388,7 +392,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/05/26/maven_pack_without_unit_test/" data-title="Maven：打包时不执行单元测试" data-url="http://thoughttiger.github.com/2016/05/26/maven_pack_without_unit_test/"></div>
+    <div class="ds-thread" data-thread-key="2016/05/29/learn_s3_3/" data-title="Amazon AWS抓包学习S3： 3、获得桶列表抓包分析" data-url="http://thoughttiger.github.com/2016/05/29/learn_s3_3/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -412,7 +416,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/05/26/fuel_ceph_s3_default_service_port/" title="Pre: Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80">
+            <a href="/2016/05/29/learn_s3_4/" title="Pre: Amazon AWS抓包学习S3： 4、上传一个文件抓包分析">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -420,7 +424,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/05/26/maven_pack_to_one_exec_jar/" title="Next: Maven：将所有依赖打包到一个可执行的jar中">
+            <a href="/2016/05/29/github_trouble_shooting_with_proxy/" title="Next: 翻墙访问github">
                 <i class="fa fa-angle-right"></i>
             </a>
         
