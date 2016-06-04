@@ -231,6 +231,73 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-maven_pack_to_one_exec_jar_with_configfiles" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/" class="article-date">
+      <time datetime="2016-06-04T08:28:22.885Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/">Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>首先在pom.xml中自定义一个变量myOutputDir，我们将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;project ...</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;myOutputDir&gt;C:\output&lt;/myOutputDir&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<p>然后我们学习一下Maven常用的变量：</p>
+<blockquote>
+<p>Maven内置变量说明：<br>${basedir} 项目根目录<br>${project.build.directory} 构建目录，缺省为target<br>${project.build.outputDirectory} 构建过程输出目录，缺省为target/classes<br>${project.build.finalName} 产出物名称，缺省为${project.artifactId}-${project.version}<br>${project.packaging} 打包类型，缺省为jar<br>${project.xxx} 当前pom文件的任意节点的内容</p>
+</blockquote>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-learn_s3_9" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -772,68 +839,6 @@
       
         <p class="article-more-link">
           <a href="/2016/05/28/learn_s3_2/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-learn_s3_1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/28/learn_s3_1/" class="article-date">
-      <time datetime="2016-05-28T15:43:11.920Z" itemprop="datePublished">2016-05-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/28/learn_s3_1/">Amazon AWS抓包学习S3： 1、代码原型</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>首先注册一个AWS账户，并在Amazon官网获得AK\SK</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/05/28/learn_s3_1/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
