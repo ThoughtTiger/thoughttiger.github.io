@@ -9,23 +9,21 @@
 
   <meta charset="utf-8">
   
-  <title>Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中 | Thought_Tiger`s Blogs</title>
+  <title>(JavaToolKits) Apache Commons IO快速读写文件 | Thought_Tiger`s Blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先在pom.xml中自定义一个变量myOutputDir，我们将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。
-12345&amp;lt;project ...    &amp;lt;properties&amp;gt;        &amp;lt;myOutputDir&amp;gt;C:\output&amp;lt;/myOutputDir&amp;gt;    &amp;lt;/properties&amp;gt;&amp;lt">
+  <meta name="description" content="Apache Commons IO可以帮助我们方便读写文件，而不是自己写底层API，下面是简单的2个读写的例子，其他的用法可以参考网络文档。
+首先，Maven中引入：12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中">
-<meta property="og:url" content="http://thoughttiger.github.com/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/index.html">
+<meta property="og:title" content="(JavaToolKits) Apache Commons IO快速读写文件">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/06/04/javatoolkits_apache_commons_io_1/index.html">
 <meta property="og:site_name" content="Thought_Tiger`s Blogs">
-<meta property="og:description" content="首先在pom.xml中自定义一个变量myOutputDir，我们将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。
-12345&amp;lt;project ...    &amp;lt;properties&amp;gt;        &amp;lt;myOutputDir&amp;gt;C:\output&amp;lt;/myOutputDir&amp;gt;    &amp;lt;/properties&amp;gt;&amp;lt">
-<meta property="og:image" content="http://i.imgur.com/2gG4we0.jpg">
-<meta property="og:updated_time" content="2016-06-04T08:36:42.963Z">
+<meta property="og:description" content="Apache Commons IO可以帮助我们方便读写文件，而不是自己写底层API，下面是简单的2个读写的例子，其他的用法可以参考网络文档。
+首先，Maven中引入：12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;g">
+<meta property="og:updated_time" content="2016-06-04T08:45:13.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中">
-<meta name="twitter:description" content="首先在pom.xml中自定义一个变量myOutputDir，我们将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。
-12345&amp;lt;project ...    &amp;lt;properties&amp;gt;        &amp;lt;myOutputDir&amp;gt;C:\output&amp;lt;/myOutputDir&amp;gt;    &amp;lt;/properties&amp;gt;&amp;lt">
-<meta name="twitter:image" content="http://i.imgur.com/2gG4we0.jpg">
+<meta name="twitter:title" content="(JavaToolKits) Apache Commons IO快速读写文件">
+<meta name="twitter:description" content="Apache Commons IO可以帮助我们方便读写文件，而不是自己写底层API，下面是简单的2个读写的例子，其他的用法可以参考网络文档。
+首先，Maven中引入：12345&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;commons-io&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;commons-io&amp;lt;/artifactId&amp;g">
   
     <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
   
@@ -232,11 +230,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-maven_pack_to_one_exec_jar_with_configfiles" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-javatoolkits_apache_commons_io_1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/" class="article-date">
-      <time datetime="2016-06-04T08:28:22.885Z" itemprop="datePublished">2016-06-04</time>
+      <a href="/2016/06/04/javatoolkits_apache_commons_io_1/" class="article-date">
+      <time datetime="2016-06-04T08:43:46.484Z" itemprop="datePublished">2016-06-04</time>
 </a>
     </div>
   
@@ -249,7 +247,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中
+      (JavaToolKits) Apache Commons IO快速读写文件
     </h1>
   
 
@@ -260,7 +258,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,17 +268,11 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>首先在pom.xml中自定义一个变量myOutputDir，我们将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;project ...</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;myOutputDir&gt;C:\output&lt;/myOutputDir&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
-<p>然后我们学习一下Maven常用的变量：</p>
-<blockquote>
-<p>Maven内置变量说明：<br>${basedir} 项目根目录<br>${project.build.directory} 构建目录，缺省为target<br>${project.build.outputDirectory} 构建过程输出目录，缺省为target/classes<br>${project.build.finalName} 产出物名称，缺省为${project.artifactId}-${project.version}<br>${project.packaging} 打包类型，缺省为jar<br>${project.xxx} 当前pom文件的任意节点的内容</p>
-</blockquote>
+        <p>Apache Commons IO可以帮助我们方便读写文件，而不是自己写底层API，下面是简单的2个读写的例子，其他的用法可以参考网络文档。</p>
+<p>首先，Maven中引入：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-io<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>从文件中读取内容<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 从文件中读取内容</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> filePath 文件路径</span><br><span class="line"> * <span class="doctag">@param</span> encode   编码方式，默认为UTF-8</span><br><span class="line"> * <span class="doctag">@return</span> 文本内容</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">readToLines</span><span class="params">(String filePath, String encode)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == encode) &#123;</span><br><span class="line">        encode = <span class="string">"UTF-8"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> FileUtils.readFileToString(file, encode);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>然后在pom.xml的build中，按照如下配置，将可执行的jar包、各种配置文件、其他可执行文件均放置到这个C:\output目录下。<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;project ...</span><br><span class="line">	&lt;build&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 将resource,bin目录也打包，和可执行的jar文件平行 --&gt;</span><br><span class="line">        &lt;resources&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/resources&lt;/directory&gt;</span><br><span class="line">                &lt;includes&gt;</span><br><span class="line">                    &lt;include&gt;**/*.properties&lt;/include&gt;</span><br><span class="line">                    &lt;include&gt;**/*.xml&lt;/include&gt;</span><br><span class="line">                    &lt;include&gt;**/*.ini&lt;/include&gt;</span><br><span class="line">                &lt;/includes&gt;</span><br><span class="line">                &lt;filtering&gt;false&lt;/filtering&gt;</span><br><span class="line">                &lt;targetPath&gt;$&#123;myOutputDir&#125;&lt;/targetPath&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line"></span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/bin&lt;/directory&gt;</span><br><span class="line">                &lt;includes&gt;</span><br><span class="line">                    &lt;include&gt;**/*&lt;/include&gt;</span><br><span class="line">                &lt;/includes&gt;</span><br><span class="line">                &lt;filtering&gt;false&lt;/filtering&gt;</span><br><span class="line">                &lt;targetPath&gt;$&#123;myOutputDir&#125;/bin&lt;/targetPath&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line">        &lt;/resources&gt;</span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line">	&lt;/build&gt;</span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
-<p>下面就是配置将各种依赖打包为一个可执行的jar中，还是在build中配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 将所有依赖打包进去 --&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">appendAssemblyId</span>&gt;</span>false<span class="tag">&lt;/<span class="name">appendAssemblyId</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">descriptorRef</span>&gt;</span>jar-with-dependencies<span class="tag">&lt;/<span class="name">descriptorRef</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                         <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>org.nalai.Main<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$&#123;myOutputDir&#125;<span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">id</span>&gt;</span>make-assembly<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                         <span class="tag">&lt;<span class="name">goal</span>&gt;</span>assembly<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>运行mvn:package后，我们看下效果：<br><img src="http://i.imgur.com/2gG4we0.jpg" alt=""></p>
-<p>参考<br>maven-assembly-plugin的典型使用方法<br><a href="http://maven.apache.org/plugins/maven-assembly-plugin/examples/single/filtering-some-distribution-files.html" target="_blank" rel="external">http://maven.apache.org/plugins/maven-assembly-plugin/examples/single/filtering-some-distribution-files.html</a></p>
+<p>向文件追加写<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 向文件追加写</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> filePath    文件路径</span><br><span class="line"> * <span class="doctag">@param</span> fileContent 写入内容</span><br><span class="line"> * <span class="doctag">@param</span> encode      编码方式，默认为UTF-8</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">appendWriteToFile</span><span class="params">(String filePath, String fileContent, String encode)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == encode) &#123;</span><br><span class="line">        encode = <span class="string">"UTF-8"</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    File file = <span class="keyword">new</span> File(filePath);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        FileUtils.writeStringToFile(file, fileContent, encode, <span class="keyword">true</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -292,16 +284,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/06/04/javatoolkits_apache_commons_io_1/">
-                    (JavaToolKits) Apache Commons IO快速读写文件
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/06/01/learn_s3_9/">
-                    Amazon AWS抓包学习S3： 9、数据加密样例
+                <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/">
+                    Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中
                 </a>
             </div>
         
@@ -369,7 +355,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"(JavaToolKits) Apache Commons IO快速读写文件　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -385,7 +371,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/" data-title="Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中" data-url="http://thoughttiger.github.com/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/"></div>
+    <div class="ds-thread" data-thread-key="2016/06/04/javatoolkits_apache_commons_io_1/" data-title="(JavaToolKits) Apache Commons IO快速读写文件" data-url="http://thoughttiger.github.com/2016/06/04/javatoolkits_apache_commons_io_1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -409,15 +395,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/06/04/javatoolkits_apache_commons_io_1/" title="Pre: (JavaToolKits) Apache Commons IO快速读写文件">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/06/01/learn_s3_9/" title="Next: Amazon AWS抓包学习S3： 9、数据加密样例">
+            <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/" title="Next: Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中">
                 <i class="fa fa-angle-right"></i>
             </a>
         
