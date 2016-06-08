@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+  <meta charset="utf-8">
+  
+  <title>(Java数据结构) 双向链表 | Thought_Tiger`s Blogs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="类定义节点实体类123456789101112131415161718192021222324252627282930public class Node&amp;lt;T&amp;gt; &amp;#123;    // 节点数据域    public T data;    // 节点的prev指针    public Node&amp;lt;T&amp;gt; prev = null;    // 节点的next指针    publi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(Java数据结构) 双向链表">
+<meta property="og:url" content="http://thoughttiger.github.com/2016/06/09/java_datastruct_doublelink/index.html">
+<meta property="og:site_name" content="Thought_Tiger`s Blogs">
+<meta property="og:description" content="类定义节点实体类123456789101112131415161718192021222324252627282930public class Node&amp;lt;T&amp;gt; &amp;#123;    // 节点数据域    public T data;    // 节点的prev指针    public Node&amp;lt;T&amp;gt; prev = null;    // 节点的next指针    publi">
+<meta property="og:image" content="http://i.imgur.com/gEWS1Dq.jpg">
+<meta property="og:image" content="http://i.imgur.com/aN5uper.jpg">
+<meta property="og:image" content="http://i.imgur.com/lNmGWqo.jpg">
+<meta property="og:image" content="http://i.imgur.com/z17zEq9.jpg">
+<meta property="og:image" content="http://i.imgur.com/2nEE95L.jpg">
+<meta property="og:image" content="http://i.imgur.com/9cbcXCo.jpg">
+<meta property="og:image" content="http://i.imgur.com/iSQDRaP.jpg">
+<meta property="og:updated_time" content="2016-06-08T16:17:26.954Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="(Java数据结构) 双向链表">
+<meta name="twitter:description" content="类定义节点实体类123456789101112131415161718192021222324252627282930public class Node&amp;lt;T&amp;gt; &amp;#123;    // 节点数据域    public T data;    // 节点的prev指针    public Node&amp;lt;T&amp;gt; prev = null;    // 节点的next指针    publi">
+<meta name="twitter:image" content="http://i.imgur.com/gEWS1Dq.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="Thought_Tiger`s Blogs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+      <link href="//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css" rel="stylesheet">
+  
+  
+      <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+      <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.9/clipboard.min.js"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+          fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+          scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.0.9/scrollreveal.min.js",
+          search: true
+      }
+  </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+  
+      <script>
+          var _hmt = _hmt || [];
+          (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?9bd71d3ec62adcf2e47932ad4a45cf52";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+          })();
+      </script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Thought_Tiger</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="true" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuel/">fuel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openstack/">openstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s3/">s3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向链表/">双向链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">none</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Thought_Tiger</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="/thoughttiger.github.com" title="GitHub"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-java_datastruct_doublelink" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/09/java_datastruct_doublelink/" class="article-date">
+      <time datetime="2016-06-08T16:16:23.504Z" itemprop="datePublished">2016-06-09</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      (Java数据结构) 双向链表
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/双向链表/">双向链表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h1><p>节点实体类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 节点数据域</span></span><br><span class="line">    <span class="keyword">public</span> T data;</span><br><span class="line">    <span class="comment">// 节点的prev指针</span></span><br><span class="line">    <span class="keyword">public</span> Node&lt;T&gt; prev = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">// 节点的next指针</span></span><br><span class="line">    <span class="keyword">public</span> Node&lt;T&gt; next = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Node&lt;T&gt; node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.equals(node.data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.hashCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>双向链表实体类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleLinkedList</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 双向链表的头指针，可以理解为无值指针</span></span><br><span class="line">    <span class="keyword">private</span> Node&lt;T&gt; head;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 双向链表的尾指针</span></span><br><span class="line">    <span class="keyword">private</span> Node&lt;T&gt; tail;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DoubleLinkedList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        head = <span class="keyword">new</span> Node&lt;T&gt;();</span><br><span class="line">        tail = <span class="keyword">new</span> Node&lt;T&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 其他方法见下面</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="插入链表的头部"><a href="#插入链表的头部" class="headerlink" title="插入链表的头部"></a>插入链表的头部</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 添加节点到链表的头部</span><br><span class="line"> * <span class="doctag">@param</span> node 节点对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addToHead</span><span class="params">(Node&lt;T&gt; node)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 空链表，则填充头和尾之间的这个node</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == head.next) &#123;</span><br><span class="line">        head.next = node;</span><br><span class="line">        tail.prev = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        node.next = head.next;</span><br><span class="line">        head.next.prev = node;</span><br><span class="line">        head.next = node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于第一个插入的节点：<br><img src="http://i.imgur.com/gEWS1Dq.jpg" alt=""></p>
+<p>其他更普遍的情况：<br><img src="http://i.imgur.com/aN5uper.jpg" alt=""></p>
+<h1 id="插入链表的尾部"><a href="#插入链表的尾部" class="headerlink" title="插入链表的尾部"></a>插入链表的尾部</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 添加节点到链表的尾部</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> node 节点对象</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addToTail</span><span class="params">(Node&lt;T&gt; node)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == tail.prev) &#123;</span><br><span class="line">        tail.prev = node;</span><br><span class="line">        head.next = node;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        tail.prev.next = node;</span><br><span class="line">        node.prev = tail.prev;</span><br><span class="line">        tail.prev = node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/lNmGWqo.jpg" alt=""></p>
+<h1 id="插入某个节点的后面"><a href="#插入某个节点的后面" class="headerlink" title="插入某个节点的后面"></a>插入某个节点的后面</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 添加某个值到指定的数值的节点后面</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> node 要插入的节点</span><br><span class="line"> * <span class="doctag">@param</span> key  被插入的节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertAfter</span><span class="params">(Node&lt;T&gt; node, T key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == head.next || <span class="keyword">null</span> == tail.prev) &#123;</span><br><span class="line">        System.out.println(<span class="string">"The Doubly Linked List is empty"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;T&gt; theNode = head.next;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">null</span> != theNode) &#123;</span><br><span class="line">            <span class="keyword">if</span> (theNode.data.equals(key)) &#123; <span class="comment">// 就插这个节点的后面</span></span><br><span class="line"></span><br><span class="line">                node.next = theNode.next;</span><br><span class="line">                theNode.next.prev = node;</span><br><span class="line"></span><br><span class="line">                theNode.next = node;</span><br><span class="line">                node.prev = theNode;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            theNode = theNode.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/z17zEq9.jpg" alt=""></p>
+<h1 id="插入某个节点的前面"><a href="#插入某个节点的前面" class="headerlink" title="插入某个节点的前面"></a>插入某个节点的前面</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 添加某个值到指定的数值的节点前面</span><br><span class="line"> *</span><br><span class="line"> * <span class="doctag">@param</span> node 要插入的节点</span><br><span class="line"> * <span class="doctag">@param</span> key  被插入的节点</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertBefore</span><span class="params">(Node&lt;T&gt; node, T key)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == head.next || <span class="keyword">null</span> == tail.prev) &#123;</span><br><span class="line">        System.out.println(<span class="string">"The Doubly Linked List is empty"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;T&gt; theNode = head.next;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">null</span> != theNode) &#123;</span><br><span class="line">            <span class="keyword">if</span> (theNode.data.equals(key)) &#123;</span><br><span class="line"></span><br><span class="line">                theNode.prev.next = node;</span><br><span class="line">                node.prev = theNode.prev;</span><br><span class="line"></span><br><span class="line">                node.next = theNode;</span><br><span class="line">                theNode.prev = node;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            theNode = theNode.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/2nEE95L.jpg" alt=""></p>
+<h1 id="顺序遍历和逆序遍历"><a href="#顺序遍历和逆序遍历" class="headerlink" title="顺序遍历和逆序遍历"></a>顺序遍历和逆序遍历</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * 链表的遍历(从head顺序遍历)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tracelFromHead</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">        System.out.println(<span class="string">"The Doubly Linked List is empry"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;T&gt; node = head;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">null</span> != node.next) &#123;</span><br><span class="line">            System.out.print(node.next + <span class="string">"--&gt;"</span>);</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 链表的遍历(从tail倒序遍历)</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traceFromTail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (isEmpty()) &#123;</span><br><span class="line">        System.out.println(<span class="string">"The Doubly Linked List is empty"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        Node&lt;T&gt; node = tail;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">null</span> != node.prev) &#123;</span><br><span class="line">            System.out.print(node.prev + <span class="string">"--&gt;"</span>);</span><br><span class="line">            node = node.prev;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/9cbcXCo.jpg" alt=""></p>
+<h1 id="简单的单元测试"><a href="#简单的单元测试" class="headerlink" title="简单的单元测试"></a>简单的单元测试</h1><p>创建对象时，有点像这样：<br><img src="http://i.imgur.com/iSQDRaP.jpg" alt=""><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testTraversalFromHead</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    DoubleLinkedList&lt;Integer&gt; doublyLinkedList = <span class="keyword">new</span> DoubleLinkedList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        Node&lt;Integer&gt; node = <span class="keyword">new</span> Node&lt;Integer&gt;();</span><br><span class="line">        node.data = i;</span><br><span class="line">        doublyLinkedList.addToHead(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    Node&lt;Integer&gt; node = <span class="keyword">new</span> Node&lt;Integer&gt;();</span><br><span class="line">    node.data = <span class="number">88</span>;</span><br><span class="line">    doublyLinkedList.insertAfter(node, <span class="number">2</span>);</span><br><span class="line">    node = <span class="keyword">new</span> Node&lt;Integer&gt;();</span><br><span class="line">    node.data = <span class="number">88</span>;</span><br><span class="line">    doublyLinkedList.insertBefore(node, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    doublyLinkedList.tracelFromHead();</span><br><span class="line">    doublyLinkedList.traceFromTail();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>打印结果：<br>5–&gt;4–&gt;3–&gt;88–&gt;2–&gt;88–&gt;1–&gt;0–&gt;<br>0–&gt;1–&gt;88–&gt;2–&gt;88–&gt;3–&gt;4–&gt;5–&gt;</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/06/04/javatoolkits_apache_commons_io_1/">
+                    (JavaToolKits) Apache Commons IO快速读写文件
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#类定义"><span class="toc-number">1.</span> <span class="toc-text">类定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入链表的头部"><span class="toc-number">2.</span> <span class="toc-text">插入链表的头部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入链表的尾部"><span class="toc-number">3.</span> <span class="toc-text">插入链表的尾部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入某个节点的后面"><span class="toc-number">4.</span> <span class="toc-text">插入某个节点的后面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入某个节点的前面"><span class="toc-number">5.</span> <span class="toc-text">插入某个节点的前面</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#顺序遍历和逆序遍历"><span class="toc-number">6.</span> <span class="toc-text">顺序遍历和逆序遍历</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#简单的单元测试"><span class="toc-number">7.</span> <span class="toc-text">简单的单元测试</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"(Java数据结构) 双向链表　| Thought_Tiger`s Blogs　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/06/09/java_datastruct_doublelink/" data-title="(Java数据结构) 双向链表" data-url="http://thoughttiger.github.com/2016/06/09/java_datastruct_doublelink/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"thoughttiger"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/06/04/javatoolkits_apache_commons_io_1/" title="下一篇: (JavaToolKits) Apache Commons IO快速读写文件">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/09/java_datastruct_doublelink/">(Java数据结构) 双向链表</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/javatoolkits_apache_commons_io_1/">(JavaToolKits) Apache Commons IO快速读写文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/">Maven：将所有依赖打包到一个可执行的jar中，且将相关配置文件生成到jar平行的目录中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/01/learn_s3_9/">Amazon AWS抓包学习S3： 9、数据加密样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/01/learn_s3_8/">Amazon AWS抓包学习S3： 8、删除一个桶抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/01/learn_s3_7/">Amazon AWS抓包学习S3： 7、删除一个文件抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/learn_s3_6/">Amazon AWS抓包学习S3： 6、对一个对象产生签名URL</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/learn_s3_5/">Amazon AWS抓包学习S3： 5、下载一个文件抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/learn_s3_4/">Amazon AWS抓包学习S3： 4、上传一个文件抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/learn_s3_3/">Amazon AWS抓包学习S3： 3、获得桶列表抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/29/github_trouble_shooting_with_proxy/">翻墙访问github</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/learn_s3_2/">Amazon AWS抓包学习S3： 2、创建桶抓包分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/28/learn_s3_1/">Amazon AWS抓包学习S3： 1、代码原型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/java_s3_api_simple/">Java开发Amazon S3 API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/27/ceph_radosgw_common_usages/">ceph radosgw的常用方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/deploy_openstack_using_fuel6.0/">使用Fuel6.0在VMWare Workstation上安装OpenStack</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/fuel_ceph_s3_default_service_port/">Fuel6.0搭建好ceph环境，S3默认端口是6780，而不是80</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_without_unit_test/">Maven：打包时不执行单元测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/26/maven_pack_to_one_exec_jar/">Maven：将所有依赖打包到一个可执行的jar中</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/25/how_to_crack_intellij_15.0.1/">怎样获得IntelliJ 15.0.1 Pro版</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/22/to-build-your-blogs-system-using-hexo/">git+github+hexo+MarkdownPad创建自己博客系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/21/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2016 Thought_Tiger
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.0">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+    <script src="//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
