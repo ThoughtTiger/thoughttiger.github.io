@@ -170,7 +170,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuel/">fuel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openstack/">openstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s3/">s3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向链表/">双向链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ceph/">ceph</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/fuel/">fuel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/intellij/">intellij</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openstack/">openstack</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/s3/">s3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/单向链表/">单向链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/双向链表/">双向链表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
                     </div>
                 </section>
                 
@@ -231,6 +231,68 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-java_datastruct_onewaylink" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/14/java_datastruct_onewaylink/" class="article-date">
+      <time datetime="2016-06-14T14:20:00.340Z" itemprop="datePublished">2016-06-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/14/java_datastruct_onewaylink/">(Java数据结构) 单向链表</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="类定义"><a href="#类定义" class="headerlink" title="类定义"></a>类定义</h1><p>实体类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T data;</span><br><span class="line">    <span class="keyword">private</span> Node&lt;T&gt; next;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">getData</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Node&lt;T&gt; <span class="title">getNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNext</span><span class="params">(Node&lt;T&gt; next)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.next = next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getData().hashCode();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj <span class="keyword">instanceof</span> Node &amp;&amp; <span class="keyword">this</span>.getData().equals(((Node) obj).getData());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getData().toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单向链表/">单向链表</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2016/06/14/java_datastruct_onewaylink/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-java_datastruct_doublelink" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -274,7 +336,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/09/java_datastruct_doublelink/#more">more >></a>
+          <a href="/2016/06/09/java_datastruct_doublelink/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -338,7 +400,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/04/javatoolkits_apache_commons_io_1/#more">more >></a>
+          <a href="/2016/06/04/javatoolkits_apache_commons_io_1/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -405,7 +467,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/#more">more >></a>
+          <a href="/2016/06/04/maven_pack_to_one_exec_jar_with_configfiles/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -467,7 +529,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/01/learn_s3_9/#more">more >></a>
+          <a href="/2016/06/01/learn_s3_9/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -529,7 +591,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/01/learn_s3_8/#more">more >></a>
+          <a href="/2016/06/01/learn_s3_8/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -591,7 +653,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/06/01/learn_s3_7/#more">more >></a>
+          <a href="/2016/06/01/learn_s3_7/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -713,7 +775,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/05/29/learn_s3_5/#more">more >></a>
+          <a href="/2016/05/29/learn_s3_5/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -775,69 +837,7 @@
 
       
         <p class="article-more-link">
-          <a href="/2016/05/29/learn_s3_4/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-learn_s3_3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/29/learn_s3_3/" class="article-date">
-      <time datetime="2016-05-29T14:33:34.450Z" itemprop="datePublished">2016-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/learn_s3_3/">Amazon AWS抓包学习S3： 3、获得桶列表抓包分析</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"Listing buckets"</span>);</span><br><span class="line"><span class="keyword">for</span> (Bucket bucket : s3.listBuckets()) &#123;</span><br><span class="line">	System.out.println(<span class="string">" - "</span> + bucket.getName());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/aws/">aws</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/s3/">s3</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2016/05/29/learn_s3_3/#more">more >></a>
+          <a href="/2016/05/29/learn_s3_4/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
